@@ -1,7 +1,9 @@
 # SM83 IO cell
 
 <a href="sm83_io_cell.png">
-  ![sm83_io_cell_thumbnail.png](sm83_io_cell_thumbnail.png)
+
+![sm83_io_cell_thumbnail.png](sm83_io_cell_thumbnail.png)
+
 </a>
 
 [sm83_io_cell.svg](sm83_io_cell.svg) is an Inkscape SVG that includes all
