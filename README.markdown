@@ -1,4 +1,4 @@
-# SM83 CPU core research
+# Game Boy hardware research
 
 *Disclaimer: reverse engineering from decap photos of just one layer involves a
 lot of guesswork, so there are almost certainly mistakes!*
