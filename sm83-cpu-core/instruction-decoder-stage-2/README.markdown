@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # SM83 instruction decoder stage 2
 
 ![sm83_instruction decoder stage 2](thumbnail.jpg)

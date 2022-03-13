@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # SM83 IO cell
 
 <a href="sm83_io_cell.png">

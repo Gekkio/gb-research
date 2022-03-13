@@ -1,0 +1,26 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: gb-research
+Upstream-Contact: Joonas Javanainen <joonas.javanainen@gmail.com>
+Source: https://github.com/Gekkio/gb-research
+
+Files: *.kicad_sch *.kicad_pro *.kicad_sym */sym-lib-table
+Copyright: 2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+License: CC-BY-4.0
+
+Files: mbc1b/hdl/generated/*.vhd
+Copyright: 2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+License: MIT OR Apache-2.0
+
+Files: mbc1b/*.jpg mbc1b/*.svg
+Copyright: 2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+License: CC-BY-4.0
+
+Files: sm83-cpu-core/*/*.jpg sm83-cpu-core/*/*.png sm83-cpu-core/*/*.svg
+Copyright: 2020-2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+License: CC-BY-4.0
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...

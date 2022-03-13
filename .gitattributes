@@ -1,9 +1,4 @@
 # SPDX-FileCopyrightText: 2020-2022 Joonas Javanainen <joonas.javanainen@gmail.com>
 #
 # SPDX-License-Identifier: CC0-1.0
-*~
-*.bak
-*.log
-*.swp
-
-*.kicad_prl
+*.jpg filter=lfs diff=lfs merge=lfs -text

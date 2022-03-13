@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+#
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[tool.poetry]
+name = "mbc1b"
+version = "0.0.0"
+description = ""
+authors = ["Joonas Javanainen <joonas.javanainen@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+vunit-hdl = "^4.6.0"
+toml = "^0.10.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
