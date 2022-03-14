@@ -5,7 +5,7 @@
   (paper "A4")
 
   (title_block
-    (title "MBC1B - Addess Decoding (outputs)")
+    (title "MBC1B - Address Decoding (outputs)")
     (date "2022-03-13")
     (rev "A")
     (company "https://gekkio.fi")
