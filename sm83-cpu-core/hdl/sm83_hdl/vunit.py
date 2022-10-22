@@ -18,6 +18,7 @@ source_files = [
     "decoder_stage2.vhd",
     "decoder_stage3.vhd",
     "decoder.vhd",
+    "idu.vhd",
     "sm83_alu_pkg.vhd",
     "sm83_decoder_pkg.vhd",
     "sm83_pkg.vhd",
