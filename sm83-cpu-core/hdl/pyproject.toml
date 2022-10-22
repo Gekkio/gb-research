@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2020-2022 Joonas Javanainen <joonas.javanainen@gmail.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[tool.poetry]
+name = "sm83-hdl"
+version = "0.0.0"
+description = ""
+authors = ["Joonas Javanainen <joonas.javanainen@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+vunit-hdl = "^4.5.0"
+toml = "^0.10.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+clean = "scripts:clean"
+decoder-dump = "scripts:decoder_dump"
+test = "scripts:test"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
