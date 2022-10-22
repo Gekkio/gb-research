@@ -10,11 +10,17 @@ import shutil
 import toml
 
 source_files = [
-    "sm83_decoder_pkg.vhd",
-    "decoder.vhd",
+    "alu_stage1.vhd",
+    "alu_stage2.vhd",
+    "alu.vhd",
+    "cells/ssdff.vhd",
     "decoder_stage1.vhd",
     "decoder_stage2.vhd",
     "decoder_stage3.vhd",
+    "decoder.vhd",
+    "sm83_alu_pkg.vhd",
+    "sm83_decoder_pkg.vhd",
+    "sm83_pkg.vhd",
 ]
 
 testbench_files = [
