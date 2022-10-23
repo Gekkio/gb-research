@@ -278,11 +278,11 @@ begin
       d => sp_reg_in(i),
       nq => sp_reg(i)
     );
-    pc_reg_inst: entity work.ssdffr
+    pc_reg_inst: entity work.ssdffs
     port map (
       clk => decoder.wren_pc,
       en => writeback,
-      res => reset_sync,
+      set => reset_sync,
       d => pc_reg_in(i),
       nq => pc_reg(i)
     );

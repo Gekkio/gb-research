@@ -18,6 +18,7 @@ source_files = [
     "cells/io_cell.vhd",
     "cells/srlatch.vhd",
     "cells/ssdffr.vhd",
+    "cells/ssdffs.vhd",
     "cells/ssdff.vhd",
     "control_unit.vhd",
     "cpu_core.vhd",
