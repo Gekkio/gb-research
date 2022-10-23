@@ -22,6 +22,7 @@ source_files = [
     "decoder.vhd",
     "idu.vhd",
     "interrupts.vhd",
+    "regfile.vhd",
     "sm83_alu_pkg.vhd",
     "sm83_decoder_pkg.vhd",
     "sm83_pkg.vhd",
