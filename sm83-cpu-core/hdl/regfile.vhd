@@ -193,98 +193,107 @@ begin
   pc_reg_in(7) <= '0' when intr_addr(7) and writeback else 'Z';
   pc_reg_in <= (others => '1') when not writeback_ext else (others => 'H');
 
-  reg_gen: for i in 0 to 7 generate
-    ir_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.m1,
-      en => writeback,
-      d => p_bus(i),
-      q => ir_reg(i)
-    );
-    a_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_a,
-      en => writeback,
-      d => uh_bus(i),
-      q => a_reg(i)
-    );
-    l_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_l,
-      en => writeback,
-      d => ul_bus(i),
-      q => l_reg(i)
-    );
-    h_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_h,
-      en => writeback,
-      d => uh_bus(i),
-      q => h_reg(i)
-    );
-    e_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_e,
-      en => writeback,
-      d => ul_bus(i),
-      q => e_reg(i)
-    );
-    d_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_d,
-      en => writeback,
-      d => uh_bus(i),
-      q => d_reg(i)
-    );
-    c_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_c,
-      en => writeback,
-      d => ul_bus(i),
-      q => c_reg(i)
-    );
-    b_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_b,
-      en => writeback,
-      d => uh_bus(i),
-      q => b_reg(i)
-    );
-    z_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_z,
-      en => writeback,
-      d => z_reg_in(i),
-      q => z_reg(i)
-    );
-    w_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_w,
-      en => writeback,
-      d => w_reg_in(i),
-      q => w_reg(i)
-    );
-  end generate;
+  ir_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.m1,
+    en => writeback,
+    d => p_bus,
+    q => ir_reg
+  );
+  a_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_a,
+    en => writeback,
+    d => uh_bus,
+    q => a_reg
+  );
+  l_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_l,
+    en => writeback,
+    d => ul_bus,
+    q => l_reg
+  );
+  h_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_h,
+    en => writeback,
+    d => uh_bus,
+    q => h_reg
+  );
+  e_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_e,
+    en => writeback,
+    d => ul_bus,
+    q => e_reg
+  );
+  d_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_d,
+    en => writeback,
+    d => uh_bus,
+    q => d_reg
+  );
+  c_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_c,
+    en => writeback,
+    d => ul_bus,
+    q => c_reg
+  );
+  b_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_b,
+    en => writeback,
+    d => uh_bus,
+    q => b_reg
+  );
+  z_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_z,
+    en => writeback,
+    d => z_reg_in,
+    q => z_reg
+  );
+  w_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => decoder.wren_w,
+    en => writeback,
+    d => w_reg_in,
+    q => w_reg
+  );
   hl_reg <= h_reg & l_reg;
   de_reg <= d_reg & e_reg;
   bc_reg <= b_reg & c_reg;
   wz_reg <= w_reg & z_reg;
 
-  reg_gen_16b: for i in 0 to 15 generate
-    sp_reg_inst: entity work.ssdff
-    port map (
-      clk => decoder.wren_sp,
-      en => writeback,
-      d => sp_reg_in(i),
-      nq => sp_reg(i)
-    );
-    pc_reg_inst: entity work.ssdffs
-    port map (
-      clk => decoder.wren_pc,
-      en => writeback,
-      set => reset_sync,
-      d => pc_reg_in(i),
-      nq => pc_reg(i)
-    );
-  end generate;
+  sp_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 16)
+  port map (
+    clk => decoder.wren_sp,
+    en => writeback,
+    d => sp_reg_in,
+    nq => sp_reg
+  );
+
+  pc_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 16)
+  port map (
+    clk => decoder.wren_pc,
+    en => writeback,
+    set => reset_sync,
+    d => pc_reg_in,
+    nq => pc_reg
+  );
 end architecture;

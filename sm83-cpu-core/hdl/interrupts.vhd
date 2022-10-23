@@ -38,16 +38,17 @@ begin
   addr_ffff <= '1' when addr ?= X"FFFF" else '0';
   wren_ie <= addr_ffff and wr;
 
-  ie_reg_gen: for i in 0 to 7 generate
-    ie_reg_inst: entity work.ssdffr
-    port map (
-      clk => wren_ie,
-      en => writeback,
-      res => reset_sync,
-      d => data(i),
-      q => ie_reg(i)
-    );
+  ie_reg_inst: entity work.ssdff_vector
+  generic map (WIDTH => 8)
+  port map (
+    clk => wren_ie,
+    en => writeback,
+    res => reset_sync,
+    d => data,
+    q => ie_reg
+  );
 
+  ie_reg_gen: for i in 0 to 7 generate
     data(i) <= '0' when not ie_reg(i) and addr_ffff and rd else 'Z';
   end generate;
 

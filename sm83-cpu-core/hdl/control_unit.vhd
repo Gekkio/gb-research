@@ -82,7 +82,7 @@ begin
 
   -- ==== decoder cb_mode flag
 
-  xurg_inst: entity work.ssdffr
+  xurg_inst: entity work.ssdff
   port map (
     clk => decoder.m1,
     en => writeback,
