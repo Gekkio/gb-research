@@ -8,6 +8,11 @@ SPDX-License-Identifier: CC0-1.0
 *Disclaimer: reverse engineering from decap photos of just one layer involves a
 lot of guesswork, so there are almost certainly mistakes!*
 
+## Repository contents
+
+* [`mbc1b/`](./mbc1b): Game Boy MBC1B Memory Bank Controller chip
+* [`sm83-cpu-core/`](./sm83-cpu-core): Game Boy SM83 CPU core
+
 ## License
 
 All assets (e.g. vector and bitmap images) and schematics are licensed under
