@@ -15,7 +15,7 @@ Files: mbc1b/*.jpg mbc1b/*.svg
 Copyright: 2022 Joonas Javanainen <joonas.javanainen@gmail.com>
 License: CC-BY-4.0
 
-Files: sm83-cpu-core/*/*.jpg sm83-cpu-core/*/*.png sm83-cpu-core/*/*.svg
+Files: sm83-cpu-core/*/*.jpg sm83-cpu-core/*/*.png sm83-cpu-core/*/*.svg sm83-cpu-core/*.jpg
 Copyright: 2020-2022 Joonas Javanainen <joonas.javanainen@gmail.com>
 License: CC-BY-4.0
 
