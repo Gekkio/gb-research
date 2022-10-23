@@ -7,6 +7,7 @@ use ieee.std_logic_1164.all;
 use work.sm83.all;
 use work.sm83_decoder.all;
 
+-- Control unit
 entity control_unit is
   port (
     reset_async: in std_ulogic;

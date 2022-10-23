@@ -6,6 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- "I/O cell" between SoC data bus and the CPU
 entity io_cell is
   port (
     clk: in std_ulogic;

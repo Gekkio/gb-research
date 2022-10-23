@@ -6,6 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use work.sm83_decoder.all;
 
+-- Instruction decoder
 entity decoder is
   port (
     clk: in std_ulogic;

@@ -6,6 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use work.sm83_decoder.all;
 
+-- Instruction decoder stage 2
 entity decoder_stage2 is
   port (
     clk: in std_ulogic;

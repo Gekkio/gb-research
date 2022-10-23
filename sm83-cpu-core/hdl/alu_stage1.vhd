@@ -8,6 +8,7 @@ use work.sm83.all;
 use work.sm83_alu.all;
 use work.sm83_decoder.all;
 
+-- ALU stage 1 (control, state)
 entity alu_stage1 is
   port (
     clk: in std_ulogic;

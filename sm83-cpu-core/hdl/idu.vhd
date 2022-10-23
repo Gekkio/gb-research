@@ -7,6 +7,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.sm83_decoder.all;
 
+-- Increment/Decrement Unit (IDU), with address bus output buffer
 entity idu is
   port (
     phi: in std_ulogic;

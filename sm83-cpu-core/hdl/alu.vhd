@@ -8,6 +8,7 @@ use work.sm83.all;
 use work.sm83_alu.all;
 use work.sm83_decoder.all;
 
+-- Arithmetic and Logic Unit (ALU)
 entity alu is
   port (
     clk: in std_ulogic;

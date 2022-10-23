@@ -8,6 +8,7 @@ use work.sm83.all;
 use work.sm83_alu.all;
 use work.sm83_decoder.all;
 
+-- ALU stage 2 (sum/carry/output)
 entity alu_stage2 is
   port (
     decoder: in decoder_type;
