@@ -70,7 +70,7 @@ The HDL model passes the following tests:
 
 ## What is planned
 
-- KiCad schematics of at least the control unit. They already exist but aree
+- KiCad schematics of at least the control unit. They already exist but are
   not ready for release. The hand-written HDL will be replaced with HDL
   generated from the schematics once this is done
 
