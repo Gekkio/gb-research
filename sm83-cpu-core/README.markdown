@@ -55,7 +55,9 @@ The HDL model passes the following tests:
 - real-world ROM testing by plugging the CPU core into a "mock SoC" (not
   included in the repo at the moment). The CPU core passes all Blargg's
   cpu_instrs that don't require SoC peripherals. In practice this means
-  everything except "02 - interrupts" which only passes partially
+  everything except "02 - interrupts" which only passes partially. Simulating
+  cpu_instrs took around 3 hours 20 minutes on my Ryzen 9 5950X machine using a
+  single core at 100% the whole time (GHDL does not support multi-core simulation)
 
 ## What has not been done
 
