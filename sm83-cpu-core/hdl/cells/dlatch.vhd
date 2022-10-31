@@ -24,17 +24,8 @@ begin
   process(clk, d)
   begin
     if clk then
-      case d is
-        when '1' | 'H' =>
-          q <= '1';
-          nq <= '0';
-        when '0' | 'L' =>
-          q <= '0';
-          nq <= '1';
-        when others =>
-          q <= 'X';
-          nq <= 'X';
-      end case;
+      q <= to_ux01(d);
+      nq <= not to_ux01(d);
     end if;
   end process;
 end architecture;

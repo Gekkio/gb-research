@@ -22,11 +22,7 @@ begin
     if clk then
       q <= storage;
     elsif not clk then
-      case d is
-        when '1' | 'H' => storage := '1';
-        when '0' | 'L' => storage := '0';
-        when others => storage := 'X';
-      end case;
+      storage := to_ux01(d);
     end if;
   end process;
 end architecture;

@@ -16,11 +16,11 @@ end entity;
 
 architecture asic of srlatch is
 begin
-  process(s, nr)
+  process(nr, s)
   begin
-    if nr = '0' then
+    if not nr then
       q <= '0';
-    elsif s = '1' then
+    elsif s then
       q <= '1';
     end if;
   end process;
