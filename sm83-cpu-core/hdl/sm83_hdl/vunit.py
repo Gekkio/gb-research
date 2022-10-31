@@ -31,10 +31,14 @@ source_files = [
     "sm83_alu_pkg.vhd",
     "sm83_decoder_pkg.vhd",
     "sm83_pkg.vhd",
+    "simulation/async_ram.vhd",
+    "simulation/test_soc.vhd",
+    "simulation/sm83_test_pkg.vhd",
 ]
 
 testbench_files = [
     "simulation/decoder_tb.vhd",
+    "simulation/test_rom_tb.vhd",
 ]
 
 

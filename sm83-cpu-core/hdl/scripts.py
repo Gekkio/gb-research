@@ -3,9 +3,25 @@
 # SPDX-License-Identifier: MIT OR Apache-2.0
 
 import os
+import psutil
 import shutil
+import signal
 from pathlib import Path
 from vunit import VUnit
+
+current_process = psutil.Process()
+
+
+def signal_handler(number, frame):
+    # Make sure GHDL gets the signal by manually sending it to all descendants
+    children = current_process.children(recursive=True)
+    for child in children:
+        child.send_signal(number)
+
+
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
+
 
 root_dir = Path(__file__).parent.resolve()
 
@@ -16,10 +32,10 @@ def clean():
         shutil.rmtree(vunit_out)
 
 
-def test():
+def compile():
     from sm83_hdl.vunit import configure, create_vhdl_ls_config, testbench_files
 
-    ui = VUnit.from_argv()
+    ui = VUnit.from_argv(["--compile"])
     lib = configure(ui)
     lib.add_source_files(testbench_files)
 
@@ -29,8 +45,18 @@ def test():
     ui.main()
 
 
+def test():
+    from sm83_hdl.vunit import configure
+
+    ui = VUnit.from_argv()
+    lib = configure(ui)
+    lib.add_source_files("simulation/decoder_tb.vhd")
+
+    ui.main()
+
+
 def decoder_dump():
-    from sm83_hdl.vunit import configure, create_vhdl_ls_config
+    from sm83_hdl.vunit import configure
 
     ui = VUnit.from_argv()
     lib = configure(ui)
@@ -60,3 +86,13 @@ def decoder_dump():
         print(f"Dumped decoder states to {target_path}")
 
     ui.main(post_run)
+
+
+def rom():
+    from sm83_hdl.vunit import configure
+
+    ui = VUnit.from_argv()
+    lib = configure(ui)
+    lib.add_source_file("simulation/test_rom_tb.vhd")
+
+    ui.main()

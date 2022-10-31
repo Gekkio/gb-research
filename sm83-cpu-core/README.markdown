@@ -90,6 +90,27 @@ The HDL model passes the following tests:
 3. Run `poetry install` in the `hdl` directory
 4. Run `poetry run test` in the `hdl` directory
 
+## Running a test ROM
+
+1. Install [Poetry](https://python-poetry.org/)
+2. Install [GHDL](https://github.com/ghdl/ghdl)
+3. Run `poetry install` in the `hdl` directory
+4. Place a test ROM file to the `hdl` directory and name the file `test.gb`
+5. Run `poetry run rom` in the `hdl` directory
+
+The `poetry run rom` command runs [VUnit](https://github.com/VUnit/vunit) and accepts various extra arguments, for example:
+
+- `--help`: display help
+- `-v`: enable verbose mode which displays some logging information
+- `-g`: open simulator GUI with test / waveform
+
+The test ROM execution is terminated when any of these conditions is true:
+
+- 100 000 000 instructions have been executed
+- 60 seconds of "emulated time" has been reached
+- a self-pointing JR opcode is fetched (= infinite loop)
+- a self-pointing JP opcode is fetched (= infinite loop)
+
 ## Further reading
 
 - [Game Boy: Complete Technical Reference](https://github.com/Gekkio/gb-ctr):

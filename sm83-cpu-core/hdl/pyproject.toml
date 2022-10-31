@@ -12,12 +12,15 @@ authors = ["Joonas Javanainen <joonas.javanainen@gmail.com>"]
 python = "^3.8"
 vunit-hdl = "^4.5.0"
 toml = "^0.10.2"
+psutil = "^5.9.3"
 
 [tool.poetry.dev-dependencies]
 
 [tool.poetry.scripts]
 clean = "scripts:clean"
+compile = "scripts:compile"
 decoder-dump = "scripts:decoder_dump"
+rom = "scripts:rom"
 test = "scripts:test"
 
 [build-system]
