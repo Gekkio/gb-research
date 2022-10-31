@@ -61,8 +61,8 @@ architecture asic of regfile is
 
   signal sp_e_adjust: std_ulogic;
   signal oe_freg_to_rbus: std_ulogic;
-  signal z_reg_in_mux: std_ulogic;
-  signal w_reg_in_mux: std_ulogic;
+  signal mux_idu_to_z_reg: std_ulogic;
+  signal mux_idu_to_w_reg: std_ulogic;
 
   signal z_reg_in_n: std_ulogic_vector(7 downto 0);
   signal w_reg_in_n: std_ulogic_vector(7 downto 0);
@@ -167,11 +167,11 @@ begin
   idu_in <= not idu_in_n;
 
 
-  z_reg_in_mux <= decoder.op_ld_nn_sp_s010;
-  z_reg_in_n <= (not p_bus) when not z_reg_in_mux else (not idu_out(7 downto 0));
+  mux_idu_to_z_reg <= decoder.op_ld_nn_sp_s010;
+  z_reg_in_n <= (not idu_out(7 downto 0)) when mux_idu_to_z_reg else (not p_bus);
 
-  w_reg_in_mux <= decoder.op_ld_nn_sp_s010 or decoder.op_jr_any_sx01;
-  w_reg_in_n <= (not p_bus) when not w_reg_in_mux else (not idu_out(15 downto 8));
+  mux_idu_to_w_reg <= decoder.op_ld_nn_sp_s010 or decoder.op_jr_any_sx01;
+  w_reg_in_n <= (not idu_out(15 downto 8)) when mux_idu_to_w_reg else (not p_bus);
 
   sp_reg_in_n_gen: for i in 0 to 15 generate
     sp_reg_in_n(i) <= '0' when wz_reg(i) and decoder.oe_wzreg_to_spreg and writeback else 'Z';
