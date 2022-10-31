@@ -51,7 +51,7 @@ begin
   hf_next <= (
     decoder.alu_logic_and or
     decoder.cb_bit or
-    (decoder.op_pop_sx10 and z_reg(5) ?= '0') or
+    (decoder.op_pop_sx10 and z_reg(5)) or
     decoder.alu_cpl or
     (decoder.alu_sum_neg_hf_nf and not inputs.half_carry) or
     (
@@ -64,7 +64,7 @@ begin
 
   cf_next <= (
     (decoder.alu_rotate_shift_right and operand_b(0)) or
-    (decoder.op_pop_sx10 and z_reg(4) ?= '0') or
+    (decoder.op_pop_sx10 and z_reg(4)) or
     (decoder.alu_ccf_scf and ir_reg(3) ?= '0') or -- SCF only
     (decoder.alu_ccf_scf and ir_reg(3) ?= '1' and not cf) or -- CCF only
     (decoder.alu_sum_pos_hf_cf and inputs.carry) or
@@ -116,7 +116,7 @@ begin
     (decoder.alu_daa and nf) or
     decoder.alu_sum_neg_hf_nf or
     decoder.alu_cpl or
-    (decoder.op_pop_sx10 and z_reg(6) ?= '0')
+    (decoder.op_pop_sx10 and z_reg(6))
   ) when writeback else '0'; -- TODO: non-symmetrical clock and writeback_ext
 
   operand_a(5) <= (
@@ -177,7 +177,7 @@ begin
       ) and inputs.zero
     ) or
     -- POP AF sets all flags
-    (decoder.op_pop_sx10 and z_reg(7) ?= '0') or
+    (decoder.op_pop_sx10 and z_reg(7)) or
     -- ALU operations that retain old ZF
     (
       (
@@ -280,7 +280,7 @@ begin
   port map (
     clk => not phi,
     en => writeback,
-    d => not z_reg(7),
+    d => z_reg(7),
     q => outputs.z_reg_sign
   );
 

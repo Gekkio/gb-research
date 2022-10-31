@@ -8,7 +8,7 @@
    height="7908.52"
    viewBox="0 0 8556.5 7908.52"
    sodipodi:docname="SGB-CPU_01_sm83_core_40x.svg"
-   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
+   inkscape:version="1.2.1 (1:1.2.1+202210291243+9c6d41e410)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -90,8 +90,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="2"
-     inkscape:cx="3789.7499"
-     inkscape:cy="4479.9999"
+     inkscape:cx="3531"
+     inkscape:cy="4649"
      inkscape:window-width="2560"
      inkscape:window-height="1295"
      inkscape:window-x="0"
@@ -14064,216 +14064,217 @@
          inkscape:label="nZF_REG" />
       <g
          id="g249681"
-         inkscape:label="nZ_REG_0-7"
+         inkscape:label="Z_REG_0-7"
          style="display:inline">
         <g
            id="g268299"
-           inkscape:label="nZ_REG_7"
+           inkscape:label="Z_REG_7"
            style="display:inline">
           <path
              d="m 4240.0485,7528.0471 v -110.7232 h 19.5982 v -75.106"
              id="path254386"
-             inkscape:label="nZ_REG_7" />
+             inkscape:label="Z_REG_7" />
           <path
              d="m 3692.236,7529.5814 v -220.3087 h 48.592 v 25.8269 h 43.834"
              id="path254388"
-             inkscape:label="nZ_REG_7" />
+             inkscape:label="Z_REG_7" />
           <path
              d="m 3409.8014,2804.9795 h -676.9537 v -17.223 h -182.4046 v 16.8467 h -24.9125 v 144.2737 h -12.9716 v 128.6832 h -109.1583 v 53.8058 h -36.6344 v 102.6682 l 6.8822,6.8822 v 25.885 l -5.4372,5.4372 v 43.5664 h 22.8069"
              id="path534782"
              style="display:inline"
-             inkscape:label="nZ_REG_7" />
+             inkscape:label="Z_REG_7" />
           <path
              d="m 3068.3963,3956.6781 h 178.9601 v -50.9365 h 347.7318 v 177.2318 l 187.5905,193.9919 2.2099,3407.5361"
              id="path710983"
              style="display:inline"
-             inkscape:label="nZ_REG_7" />
+             inkscape:label="Z_REG_7" />
           <path
              d="m 2731.5881,2621.4279 h 460.0908 l 4.783,17.8504 h 213.3395 v 734.7673 h -348.2968 v 344.4296 l 13.2612,7.6563 v 31.9786 l -6.3695,3.6775 v 365.7847 l 3180.949,-6.1077 v -71.8261 l 856.1347,-1.266 v -36.909 h 200.3784 l -7.9895,7.9895 v 195.5601 h 111.3198 v -24.6293 h 42.2055 v -142.2529 h -30.4262 v 27.0687"
              id="path534780"
              style="display:inline"
-             inkscape:label="nZ_REG_7" />
+             inkscape:label="Z_REG_7" />
           <path
              style="display:inline"
              d="m 3546.657,7299.1102 v 230.4712 h 145.579 l 10.6767,-6.1642 h 529.1166 l 10.6928,6.1735 h 1534.5931 v -35.1027"
              id="path254381"
-             inkscape:label="nZ_REG_7" />
+             inkscape:label="Z_REG_7" />
           <path
              d="m 7373.108,4215.0131 v -28.4232"
              id="path36464"
-             inkscape:label="nZ_REG_7" />
+             inkscape:label="Z_REG_7" />
         </g>
         <g
            id="g249686"
-           inkscape:label="nZ_REG_6"
+           inkscape:label="Z_REG_6"
            style="display:inline">
           <path
              style="fill:none"
              d="m 3546.065,6887.7578 v 231.873 h 147.2849 l 10.7553,-6.2096 h 527.3715 l 10.1427,5.8559 h 1535.112 v -39.0353"
              id="path249683"
-             inkscape:label="nZ_REG_6" />
+             inkscape:label="Z_REG_6" />
           <path
              style="display:inline;fill:none"
              d="m 3766.8359,7682.4639 -2.2725,-3393.5418 -1284.0095,0.6981 V 4164.2508 H 2167.833 V 3962.0969 H 899.98372 l -12.7553,12.7553 h -48.53388 v -97.4678 l -159.06351,-162.751 -5.85127,-25.9725 h -5.43184 l -0.80229,-624.0313 h 182.97361 l -0.59815,-478.0391 1145.07321,-0.3577 v -46.771 h -52.2355"
              id="path249688"
              sodipodi:nodetypes="ccccccccccccccccc"
-             inkscape:label="nZ_REG_6" />
+             inkscape:label="Z_REG_6" />
           <path
              style="fill:none"
              d="m 4240.0039,7118.3444 v -108.6608 h 18.0038 v -74.7756"
              id="path249691"
-             inkscape:label="nZ_REG_6" />
+             inkscape:label="Z_REG_6" />
           <path
              d="m 3766.328,6923.9696 h -24.2075 v -23.5675 h -50.3428 v 219.2287"
              id="path275362"
-             inkscape:label="nZ_REG_6" />
+             inkscape:label="Z_REG_6" />
         </g>
         <g
            id="g273001"
-           inkscape:label="nZ_REG_5"
+           inkscape:label="Z_REG_5"
            style="display:inline">
           <path
              d="m 3545.9915,6479.4411 v 230.557 h 137.317 l 11.406,-6.5853 h 535.0576 l 10.9618,6.3289 h 1536.2139 v -34.7658"
              id="path272998"
-             inkscape:label="nZ_REG_5" />
+             inkscape:label="Z_REG_5" />
           <path
              d="m 4240.7339,6709.7417 v -109.374 h 17.1042 v -75.0032"
              id="path273003"
-             inkscape:label="nZ_REG_5" />
+             inkscape:label="Z_REG_5" />
           <path
              d="m 3691.1825,6705.452 v -215.3713 h 56.2718"
              id="path273005"
              sodipodi:nodetypes="ccc"
-             inkscape:label="nZ_REG_5" />
+             inkscape:label="Z_REG_5" />
           <path
              d="m 3748.3258,7684.5027 -2.4632,-3375.7894 -1283.7022,-0.9 -1.9779,-125.8384 -311.6306,0.6758 V 3981.0239 H 922.48377 l -29.47968,5.5932 H 652.44866 L 648.5677,2434.86 h 200.94665 v -12.0927 h 117.63287 v 50.8986"
              id="path273007"
-             inkscape:label="nZ_REG_5" />
+             inkscape:label="Z_REG_5" />
         </g>
         <g
            id="g277721"
-           inkscape:label="nZ_REG_4"
+           inkscape:label="Z_REG_4"
            style="display:inline">
           <path
              d="m 3546.6042,6070.0848 v 229.5421 h 144.1904 l 10.3954,-6.0018 h 529.6154 l 11.9197,6.8818 h 1534.8063 v -33.8006"
              id="path277718"
-             inkscape:label="nZ_REG_4" />
+             inkscape:label="Z_REG_4" />
           <path
              d="m 4239.7822,6298.8078 v -108.0864 h 19.4224 v -74.4157"
              id="path277723"
-             inkscape:label="nZ_REG_4" />
+             inkscape:label="Z_REG_4" />
           <path
              d="m 3730.3873,7684.5042 -3.1822,-3358.7063 -1285.4356,0.5529 v -127.8721 l -310.6026,1.1278 v -201.398 l -1498.06683,1.2894 -2.3693,-997.9952 34.81229,0.2751 v -543.7124 20.0694 l 28.36284,35.9367 h 535.0957 v -70.9726"
              id="path277725"
-             inkscape:label="nZ_REG_4" />
+             inkscape:label="Z_REG_4" />
           <path
              d="m 3728.8675,6080.3883 h -36.8154 l -1.2575,219.2386"
              id="path280085"
-             inkscape:label="nZ_REG_4" />
+             inkscape:label="Z_REG_4" />
         </g>
         <g
            id="g287917"
-           inkscape:label="nZ_REG_3"
+           inkscape:label="Z_REG_3"
            style="display:inline">
           <path
              d="m 3546.684,5662.5963 v 227.7565 h 136.3999 l 17.9197,-4.8016 h 534.154 l 8.7135,5.0308 h 1535.9 v -33.6844"
              id="path287914"
-             inkscape:label="nZ_REG_3" />
+             inkscape:label="Z_REG_3" />
           <path
              d="m 4241.3879,5889.1483 v -107.159 h 17.2715 v -73.09"
              id="path287919"
-             inkscape:label="nZ_REG_3" />
+             inkscape:label="Z_REG_3" />
           <path
              d="M 3693.2438,5887.6304 V 5671.7289"
              id="path287921"
-             inkscape:label="nZ_REG_3" />
+             inkscape:label="Z_REG_3" />
         </g>
         <g
            id="g290289"
-           inkscape:label="nZ_REG_2"
+           inkscape:label="Z_REG_2"
            style="display:inline">
           <path
              d="m 3546.1886,5263.5277 v 230.7804 h 138.1787 l 19.416,-5.2025 h 528.9729 l 8.2373,4.7558 h 1542.7487 v -27.2799"
              id="path290286"
-             inkscape:label="nZ_REG_2" />
+             inkscape:label="Z_REG_2" />
           <path
              d="m 4239.601,5493.0574 v -109.2208 h 19.5253 v -73.0783"
              id="path290291"
-             inkscape:label="nZ_REG_2" />
+             inkscape:label="Z_REG_2" />
           <path
              d="M 3693.2392,5491.9309 V 5274.8394"
              id="path290293"
-             inkscape:label="nZ_REG_2" />
+             inkscape:label="Z_REG_2" />
         </g>
         <g
            id="g292665"
-           inkscape:label="nZ_REG_1"
+           inkscape:label="Z_REG_1"
            style="display:inline">
           <path
              d="m 3545.4327,4866.4103 v 231.783 h 145.1988 l 12.5113,-7.2233 h 526.5998 l 11.4755,6.6253 1540.9874,-1.8769 v -26.1834"
              id="path292662"
-             inkscape:label="nZ_REG_1" />
+             inkscape:label="Z_REG_1" />
           <path
              d="M 4239.8353,5096.7969 V 4987.55 h 19.5144 v -74.4561"
              id="path292667"
-             inkscape:label="nZ_REG_1" />
+             inkscape:label="Z_REG_1" />
           <path
              d="M 3692.2858,5097.2382 V 4877.5258"
              id="path292669"
-             inkscape:label="nZ_REG_1" />
+             inkscape:label="Z_REG_1" />
         </g>
         <g
            id="g244992"
-           inkscape:label="nZ_REG_0"
+           inkscape:label="Z_REG_0"
            style="display:inline">
           <path
              d="m 3436.068,4468.294 v -7.642 h 109.9891 v 239.6076 h 146.8824 l 10.6407,-6.1434 h 534.9932 l 5.9161,5.9162 1537.6668,-1.8648 v -26.574"
              id="path244989"
              sodipodi:nodetypes="cccccccc"
              style="marker-start:url(#Square)"
-             inkscape:label="nZ_REG_0" />
+             inkscape:label="Z_REG_0" />
           <path
              style="display:inline"
              d="m 3692.7778,4700.4749 v -220.6474 h -5.1137 v 38.8757"
              id="path247330"
-             inkscape:label="nZ_REG_0" />
+             inkscape:label="Z_REG_0" />
           <path
              d="m 4241.5315,4697.0743 v -107.7485 h 17.3376 v -79.2346 h -33.1984"
              id="path247333"
              sodipodi:nodetypes="cccc"
-             inkscape:label="nZ_REG_0" />
+             inkscape:label="Z_REG_0" />
           <path
              d="m 3546.0571,4474.7619 h 46.8307 v 47.1106"
              id="path247335"
              sodipodi:nodetypes="cc"
-             inkscape:label="nZ_REG_0" />
+             inkscape:label="Z_REG_0" />
         </g>
       </g>
       <g
          id="g458439"
-         inkscape:label="nW_REG_0-7"
+         inkscape:label="W_REG_0-7"
          style="display:inline">
         <g
            id="g458442"
-           inkscape:label="nW_REG_0">
+           inkscape:label="W_REG_0"
+           style="display:inline">
           <path
              d="m 4403.6396,4468.3759 v -7.6724 h -126.9305 v 183.4629 h 18.5745 v 69.0279 l 1662.4605,-2.2909 v -55.9771 h -23.4947 v -41.673"
              id="path458434"
-             inkscape:label="nW_REG_0"
+             inkscape:label="W_REG_0"
              style="marker-start:url(#Square)" />
           <path
              d="m 4295.2836,4713.1943 h -70.1492 l -10.9548,-6.3248 h -495.3823 l -11.0039,6.3532 h -199.5641 v -86.7519 h 86.3451 v -28.0369"
              id="path464220"
-             inkscape:label="nW_REG_0" />
+             inkscape:label="W_REG_0" />
           <path
              d="m 5166.6531,4711.9935 v -31.5828 h -68.5072 v -35.7476 h -65.8379 v -42.2979"
              id="path796311"
              sodipodi:nodetypes="cccccc"
-             inkscape:label="nW_REG_0" />
+             inkscape:label="W_REG_0" />
           <path
              d="m 4276.7091,4625.7909 h -61.6567"
              id="path852993"
-             inkscape:label="nW_REG_0" />
+             inkscape:label="W_REG_0" />
         </g>
       </g>
       <g
@@ -21160,7 +21161,8 @@
       </g>
       <g
          id="g347480"
-         inkscape:label="nIDU_IN_0-15">
+         inkscape:label="nIDU_IN_0-15"
+         style="display:inline">
         <g
            id="g328529"
            style="display:inline;fill:none;stroke:#0000ff;stroke-width:4px"
@@ -21363,21 +21365,22 @@
       </g>
       <g
          id="g412823"
-         inkscape:label="Z_REG_IN_0-7">
+         inkscape:label="nZ_REG_IN_0-7"
+         style="display:inline">
         <g
            id="g6042"
-           inkscape:label="Z_REG_IN_0">
+           inkscape:label="nZ_REG_IN_0">
           <path
              d="m 3802.7676,4508.4992 v 38.44 h -134.4817 v 79.6429 h -36.1593 v 30.5944 h -276.2118 v -38.8635"
              id="path412820"
-             inkscape:label="Z_REG_IN_0"
+             inkscape:label="nZ_REG_IN_0"
              style="display:inline;marker-start:url(#Square)"
              sodipodi:nodetypes="cccccccc" />
           <path
              d="m 3802.7676,4465.4889 v 43.0103"
              id="path1194485"
              style="marker-start:url(#Square)"
-             inkscape:label="Z_REG_IN_0" />
+             inkscape:label="nZ_REG_IN_0" />
         </g>
       </g>
       <g
@@ -21438,11 +21441,11 @@
       </g>
       <g
          id="g539440"
-         inkscape:label="W_REG_IN_0-7">
+         inkscape:label="nW_REG_IN_0-7">
         <path
            d="m 4483.3697,4617.893 v 39.3732 h -120.374 v -25.3701 h -71.0231 l -21.5148,12.4216 h -23.4158 v 25.2351 h -226.1732 v -18.344 h -95.2627 v 5.4438 H 3802.144 v -73.3134"
            id="path539437"
-           inkscape:label="W_REG_IN_0"
+           inkscape:label="nW_REG_IN_0"
            style="display:inline;stroke-width:4px;fill:none;stroke:#0000ff" />
       </g>
       <g

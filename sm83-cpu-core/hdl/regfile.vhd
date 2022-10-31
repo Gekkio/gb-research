@@ -64,8 +64,8 @@ architecture asic of regfile is
   signal z_reg_in_mux: std_ulogic;
   signal w_reg_in_mux: std_ulogic;
 
-  signal z_reg_in: std_ulogic_vector(7 downto 0);
-  signal w_reg_in: std_ulogic_vector(7 downto 0);
+  signal z_reg_in_n: std_ulogic_vector(7 downto 0);
+  signal w_reg_in_n: std_ulogic_vector(7 downto 0);
   signal sp_reg_in_n: std_logic_vector(15 downto 0);
   signal pc_reg_in_n: std_logic_vector(15 downto 0);
 begin
@@ -117,14 +117,14 @@ begin
 
     r_bus_n(i) <= '0' when d_reg(i) and decoder.oe_dreg_to_rbus else 'Z';
 
-    r_bus_n(i) <= '0' when not z_reg(i) and decoder.oe_zreg_to_rbus else 'Z';
+    r_bus_n(i) <= '0' when z_reg(i) and decoder.oe_zreg_to_rbus else 'Z';
 
     ul_bus_n(i) <= '0' when idu_out(i) and decoder.oe_idu_to_uhlbus else 'Z';
-    ul_bus_n(i) <= '0' when not z_reg(i) and decoder.oe_wzreg_to_uhlbus else 'Z';
+    ul_bus_n(i) <= '0' when z_reg(i) and decoder.oe_wzreg_to_uhlbus else 'Z';
     ul_bus_n(i) <= '0' when alu_out(i) and decoder.oe_ubus_to_uhlbus else 'Z';
 
     uh_bus_n(i) <= '0' when idu_out(8+i) and decoder.oe_idu_to_uhlbus else 'Z';
-    uh_bus_n(i) <= '0' when not w_reg(i) and decoder.oe_wzreg_to_uhlbus else 'Z';
+    uh_bus_n(i) <= '0' when w_reg(i) and decoder.oe_wzreg_to_uhlbus else 'Z';
     uh_bus_n(i) <= '0' when alu_out(i) and decoder.oe_ubus_to_uhlbus else 'Z';
 
     p_bus(i) <= '0' when not sp_reg(i) and decoder.op_ld_nn_sp_s010 else 'Z';
@@ -147,7 +147,7 @@ begin
   idu_in_n(15 downto 8) <= X"00" when decoder.op_ldh_c_sx00 else X"ZZ";
 
   idu_in_n_gen_lsb: for i in 0 to 7 generate
-    idu_in_n(i) <= '0' when not z_reg(i) and decoder.op_ldh_imm_sx01 else 'Z';
+    idu_in_n(i) <= '0' when z_reg(i) and decoder.op_ldh_imm_sx01 else 'Z';
   end generate;
 
   idu_in_n_gen_msb: for i in 8 to 15 generate
@@ -158,8 +158,8 @@ begin
     idu_in_n(i) <= '0' when hl_reg(i) and decoder.oe_hlreg_to_idu else 'Z';
     idu_in_n(i) <= '0' when bc_reg(i) and decoder.oe_bcreg_to_idu else 'Z';
     idu_in_n(i) <= '0' when de_reg(i) and decoder.oe_dereg_to_idu else 'Z';
-    idu_in_n(i) <= '0' when not wz_reg(i) and decoder.oe_wzreg_to_idu else 'Z';
-    idu_in_n(i) <= '0' when not wz_reg(i) and decoder.op_jr_any_sx10 else 'Z';
+    idu_in_n(i) <= '0' when wz_reg(i) and decoder.oe_wzreg_to_idu else 'Z';
+    idu_in_n(i) <= '0' when wz_reg(i) and decoder.op_jr_any_sx10 else 'Z';
     idu_in_n(i) <= '0' when pc_reg(i) and decoder.addr_pc else 'Z';
     idu_in_n(i) <= '0' when sp_reg(i) and decoder.oe_spreg_to_idu else 'Z';
   end generate;
@@ -168,19 +168,19 @@ begin
 
 
   z_reg_in_mux <= decoder.op_ld_nn_sp_s010;
-  z_reg_in <= (not p_bus) when not z_reg_in_mux else (not idu_out(7 downto 0));
+  z_reg_in_n <= (not p_bus) when not z_reg_in_mux else (not idu_out(7 downto 0));
 
   w_reg_in_mux <= decoder.op_ld_nn_sp_s010 or decoder.op_jr_any_sx01;
-  w_reg_in <= (not p_bus) when not w_reg_in_mux else (not idu_out(15 downto 8));
+  w_reg_in_n <= (not p_bus) when not w_reg_in_mux else (not idu_out(15 downto 8));
 
   sp_reg_in_n_gen: for i in 0 to 15 generate
-    sp_reg_in_n(i) <= '0' when not wz_reg(i) and decoder.oe_wzreg_to_spreg and writeback else 'Z';
+    sp_reg_in_n(i) <= '0' when wz_reg(i) and decoder.oe_wzreg_to_spreg and writeback else 'Z';
     sp_reg_in_n(i) <= '0' when idu_out(i) and decoder.oe_idu_to_spreg and writeback else 'Z';
   end generate;
   sp_reg_in_n <= (others => '1') when not writeback_ext else (others => 'H');
 
   pc_reg_in_n_gen: for i in 0 to 15 generate
-    pc_reg_in_n(i) <= '0' when not wz_reg(i) and decoder.oe_wzreg_to_pcreg and writeback else 'Z';
+    pc_reg_in_n(i) <= '0' when wz_reg(i) and decoder.oe_wzreg_to_pcreg and writeback else 'Z';
     pc_reg_in_n(i) <= '0' when idu_out(i) and decoder.oe_idu_to_pcreg and writeback else 'Z';
   end generate;
   pc_reg_in_n(3) <= '0' when ir_reg(3) and decoder.op_rst_sx10 and writeback else 'Z';
@@ -262,16 +262,16 @@ begin
   port map (
     clk => decoder.wren_z,
     en => writeback,
-    d => z_reg_in,
-    q => z_reg
+    d => z_reg_in_n,
+    nq => z_reg
   );
   w_reg_inst: entity work.ssdff_vector
   generic map (WIDTH => 8)
   port map (
     clk => decoder.wren_w,
     en => writeback,
-    d => w_reg_in,
-    q => w_reg
+    d => w_reg_in_n,
+    nq => w_reg
   );
   hl_reg <= h_reg & l_reg;
   de_reg <= d_reg & e_reg;

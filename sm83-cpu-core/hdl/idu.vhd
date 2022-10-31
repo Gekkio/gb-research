@@ -25,8 +25,8 @@ architecture asic of idu is
   signal jr_pos_carry, jr_neg_carry, jr_carry: std_ulogic;
   signal inc, dec: std_ulogic;
 begin
-  jr_pos_carry <= decoder.op_jr_any_sx01 and carry and z_sign;
-  jr_neg_carry <= decoder.op_jr_any_sx01 and not carry and not z_sign;
+  jr_pos_carry <= decoder.op_jr_any_sx01 and carry and not z_sign;
+  jr_neg_carry <= decoder.op_jr_any_sx01 and not carry and z_sign;
   jr_carry <= jr_pos_carry or jr_neg_carry;
   inc <= jr_pos_carry or decoder.idu_inc;
   dec <= jr_neg_carry or decoder.idu_dec;
