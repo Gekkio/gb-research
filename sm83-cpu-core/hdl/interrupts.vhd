@@ -58,7 +58,7 @@ begin
   intr_addr(3) <= writeback and (irq_ack(1) or irq_ack(3) or irq_ack(5) or irq_ack(7));
   intr_addr(4) <= writeback and (irq_ack(2) or irq_ack(3) or irq_ack(6) or irq_ack(7));
   intr_addr(5) <= writeback and (irq_ack(4) or irq_ack(6) or irq_ack(7));
-  intr_addr(6) <= int_s110 and intr_trigger;
+  intr_addr(6) <= int_s110 and irq_trigger;
   intr_addr(7) <= int_s110 and nmi_trigger;
 
   irq_latch_gen: for i in 0 to 7 generate
