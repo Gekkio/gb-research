@@ -49,19 +49,43 @@ architecture asic of control_unit is
   signal halt_req, stop_req, intr_wake_sync: std_ulogic;
   signal cpuclk_shdn, sysclk_shdn: std_ulogic;
 
-  signal xurg: std_ulogic;
+  signal cb_instr_exec: std_ulogic;
 
-  signal xdqf, vequ, vile: std_ulogic;
+  signal data_msb: std_ulogic;
+  signal data_fetch_lsb: std_ulogic;
 
-  signal xogs, ykua, yolu: std_ulogic;
-  signal ynoz, yneu, yepj, ydxa: std_ulogic;
-  signal yodp, yniu, zaza, zorp: std_ulogic;
-  signal ziks, zwlm, zudn, zloz: std_ulogic;
-  signal zyoc, zojz, zacw, zfex: std_ulogic;
-  signal zkog, zowa, zaoc, zzom: std_ulogic;
-  signal zmiz, zepl, zaij, zivv: std_ulogic;
-  signal zkdu, zgna, znda, zrsy: std_ulogic;
-  signal zoxc, zwuu, zjje, zbpp: std_ulogic;
+  signal cpuclk_shdn_req: std_ulogic;
+  signal cpuclk_wake_req: std_ulogic;
+  signal ime: std_ulogic;
+  signal ime_reset_n: std_ulogic;
+  signal ime_set: std_ulogic;
+  signal intr_ack: std_ulogic;
+  signal intr_dispatch: std_ulogic;
+  signal intr_trigger: std_ulogic;
+  signal irq_begin: std_ulogic;
+  signal irq_en_n: std_ulogic;
+  signal irq_ready_n: std_ulogic;
+  signal irq_trigger: std_ulogic;
+  signal nmi_ack: std_ulogic;
+  signal nmi_begin: std_ulogic;
+  signal nmi_en: std_ulogic;
+  signal nmi_ready: std_ulogic;
+  signal nmi_n: std_ulogic;
+  signal nmi_posedge: std_ulogic;
+  signal nmi_prev_delayed: std_ulogic;
+  signal nmi_prev_n: std_ulogic;
+  signal nmi_req: std_ulogic;
+  signal nmi_trigger: std_ulogic;
+  signal nmi_trigger_n: std_ulogic;
+  signal op_boundary: std_ulogic;
+  signal op_di: std_ulogic;
+  signal op_di_n: std_ulogic;
+  signal reset_sync_n: std_ulogic;
+  signal startup_begin: std_ulogic;
+  signal startup_delay_m0: std_ulogic;
+  signal startup_delay_m1: std_ulogic;
+  signal startup_delay_m2: std_ulogic;
+  signal sysclk_wake_req: std_ulogic;
 begin
   -- WAFR, WDIN, WYRP
   rd <= (decoder.m1 or decoder.data_fetch_cycle) and not (test_t1 or phi);
@@ -78,25 +102,27 @@ begin
   -- ==== decoder intr flag
 
   -- XYGB
-  intr <= zacw or reset_op_int or reset_op_ext;
+  intr <= intr_dispatch or reset_op_int or reset_op_ext;
 
   -- ==== decoder cb_mode flag
 
-  xurg_inst: entity work.ssdff
+  -- XURG
+  cb_instr_exec_inst: entity work.ssdff
   port map (
     clk => decoder.m1,
     en => writeback,
     res => cpuclk_shdn,
     d => decoder.op_cb_s0xx,
-    q => xurg
+    q => cb_instr_exec
   );
 
   -- XUDO, XTIP
-  cb_mode <= (xurg and not state(2)) or reset_op_ext;
+  cb_mode <= (cb_instr_exec and not state(2)) or reset_op_ext;
 
   -- ==== 3-bit decoder state
 
-  xaym_inst: entity work.dff
+  -- XAYM
+  state0_inst: entity work.dff
   port map (
     clk => mclk_pulse,
     -- WAGR + WUDZ
@@ -104,7 +130,8 @@ begin
     q => state(0)
   );
 
-  xirf_inst: entity work.dff
+  -- XIRF
+  state1_inst: entity work.dff
   port map (
     clk => mclk_pulse,
     -- WAGR + WEEN
@@ -112,7 +139,8 @@ begin
     q => state(1)
   );
 
-  xufu_inst: entity work.dff
+  -- XUFU
+  state2_inst: entity work.dff
   port map (
     clk => mclk_pulse,
     -- WAGR + WERF
@@ -122,98 +150,118 @@ begin
 
   -- ==== data MSB/LSB toggle
 
-  vile <= not xdqf;
-  vequ <= decoder.data_fetch_cycle and vile;
+  -- VILE
+  data_lsb <= not data_msb;
 
-  xdqf_inst: entity work.dff
+  -- VEQU
+  data_fetch_lsb <= decoder.data_fetch_cycle and data_lsb;
+
+  -- XDQF
+  data_msb_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => vequ,
-    q => xdqf
+    d => data_fetch_lsb,
+    q => data_msb
   );
-
-  data_lsb <= vile;
 
   -- ==== uncategorized
 
-  xogs <= (decoder.m1 and not phi and not decoder.op_cb_s0xx) or reset_op_int; -- includes XULT
+  -- XOGS
+  op_boundary <= (decoder.m1 and not phi and not decoder.op_cb_s0xx) or reset_op_int; -- includes XULT
 
-  yoii_inst: entity work.dff
+  -- YOII
+  intr_wake_sync_inst: entity work.dff
   port map (
     clk => mclk_pulse,
     d => intr_wake,
     q => intr_wake_sync
   );
 
-  ykua <= not ((intr_wake_sync or yolu) and not reset_any);
+  -- YKUA
+  cpuclk_wake_req <= not ((intr_wake_sync or startup_begin) and not reset_any);
 
-  yolu <= zorp nor (not zaza);
+  -- YOLU
+  startup_begin <= startup_delay_m1 nor (not startup_delay_m2);
 
-  ysbt_inst: entity work.dff
+  -- YSBT
+  halt_req_inst: entity work.dff
   port map (
     clk => mclk_pulse,
     d => decoder.op_halt_s0xx,
     q => halt_req
   );
 
-  ynoz <= halt_req or stop_req or reset_async;
+  -- YNOZ
+  cpuclk_shdn_req <= halt_req or stop_req or reset_async;
 
-  ynkw_inst: entity work.srlatch
+  -- YNKW
+  cpuclk_shdn_inst: entity work.srlatch
   port map (
-    s => ynoz,
-    nr => ykua,
+    s => cpuclk_shdn_req,
+    nr => cpuclk_wake_req,
     q => cpuclk_shdn
   );
 
   -- YCNF
   reset_op_int <= cpuclk_shdn or reset_sync or reset_op_ext;
 
-  yneu <= not ((decoder.int_s110 and nmi_dispatch) or reset_sync);
+  -- YNEU
+  nmi_ack <= not ((decoder.int_s110 and nmi_dispatch) or reset_sync);
 
-  yepj <= not nmi;
+  -- YEPJ
+  nmi_n <= not nmi;
 
-  ydxa_inst: entity work.dff
+  -- YDXA
+  nmi_prev_n_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => yepj,
-    q => ydxa
+    d => nmi_n,
+    q => nmi_prev_n
   );
 
-  yodp_inst: entity work.dlatch
+  -- YODP
+  nmi_prev_delayed_inst: entity work.dlatch
   port map (
     clk => not mclk_pulse,
-    d => ydxa,
-    nq => yodp
+    d => nmi_prev_n,
+    nq => nmi_prev_delayed
   );
 
-  yniu <= yodp nor yepj;
+  -- YNIU: detect when nmi was previously low and is now high
+  nmi_posedge <= nmi_prev_delayed nor nmi_n;
 
-  zaza_inst: entity work.dff
+  -- ZAZA
+  startup_delay_m2_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => zorp,
-    q => zaza
+    d => startup_delay_m1,
+    q => startup_delay_m2
   );
 
-  zorp_inst: entity work.dff
+  -- ZORP
+  startup_delay_m1_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => ziks,
-    q => zorp
+    d => startup_delay_m0,
+    q => startup_delay_m1
   );
 
-  ziks <= reset_ack nand zudn;
+  -- ZIKS
+  startup_delay_m0 <= reset_ack nand reset_sync_n;
 
-  zwlm <= wake nor reset_any;
+  -- ZWLM
+  sysclk_wake_req <= wake nor reset_any;
 
-  zumn_inst: entity work.srlatch
+  -- ZUMN
+  sysclk_shdn_inst: entity work.srlatch
   port map (
     s => stop_req,
-    nr => zwlm,
+    nr => sysclk_wake_req,
     q => sysclk_shdn
   );
 
-  zkai_inst: entity work.dff
+  -- ZKAI
+  stop_req_inst: entity work.dff
   port map (
     clk => mclk_pulse,
     d => op_stop,
@@ -223,102 +271,125 @@ begin
   -- ZIUL
   op_stop <= decoder.op_nop_stop_s0xx and ir_reg(4);
 
-  zudn <= not reset_sync;
+  -- ZUDN
+  reset_sync_n <= not reset_sync;
 
-  zrby_inst: entity work.dff
+  -- ZRBY
+  nmi_dispatch_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => zloz,
+    d => nmi_trigger,
     q => nmi_dispatch
   );
 
-  zloz_inst: entity work.srlatch
+  -- ZLOZ
+  nmi_trigger_inst: entity work.srlatch
   port map (
-    s => zyoc,
-    nr => yneu,
-    q => zloz
+    s => nmi_begin,
+    nr => nmi_ack,
+    q => nmi_trigger
   );
 
-  zyoc <= zojz and zkdu and xogs;
+  -- ZYOC
+  nmi_begin <= nmi_req and nmi_ready and op_boundary;
 
-  zojz_inst: entity work.srlatch
+  -- ZOJZ
+  nmi_req_inst: entity work.srlatch
   port map (
-    s => yniu,
-    nr => yneu,
-    q => zojz
+    s => nmi_posedge,
+    nr => nmi_ack,
+    q => nmi_req
   );
 
-  zacw_inst: entity work.dff
+  -- ZACW
+  intr_dispatch_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => zfex,
-    q => zacw
+    d => intr_trigger,
+    q => intr_dispatch
   );
 
-  zfex <= zkog or zloz;
+  -- ZFEX
+  intr_trigger <= irq_trigger or nmi_trigger;
 
-  zkog_inst: entity work.srlatch
+  -- ZKOG
+  irq_trigger_inst: entity work.srlatch
   port map (
-    s => zaij,
-    nr => zowa,
-    q => zkog
+    s => irq_begin,
+    nr => intr_ack,
+    q => irq_trigger
   );
 
-  zowa <= decoder.int_s110 nor reset_sync;
+  -- ZOWA
+  intr_ack <= decoder.int_s110 nor reset_sync;
 
-  zaoc <= xogs nand irq_req;
+  -- ZZOM
+  op_di_n <= (not ir_reg(3)) nand decoder.op_di_ei_s0xx; -- includes ZEVO
 
-  zzom <= (not ir_reg(3)) nand decoder.op_di_ei_s0xx; -- includes ZEVO
+  -- ZMIZ
+  op_di <= not op_di_n;
 
-  zmiz <= not zzom;
+  -- ZAIJ
+  -- similar to nmi_begin: !irq_ready_n and op_boundary and irq_req and !op_di
+  irq_begin <= not (
+    irq_ready_n or
+    (op_boundary nand irq_req) or -- includes ZAOC
+    op_di or
+    phi -- includes ZELP, redundant due to op_boundary
+  );
 
-  zaij <= not (zivv or zaoc or zmiz or phi); -- includes ZELP
-
-  zivv_inst: entity work.dff
+  -- ZIVV
+  irq_ready_n_inst: entity work.dff
   port map (
     clk => not clk,
-    d => zoxc,
-    q => zivv
+    d => irq_en_n,
+    q => irq_ready_n
   );
 
-  zkdu_inst: entity work.dff
+  -- ZKDU
+  nmi_ready_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => zrsy,
-    q => zkdu
+    d => nmi_en,
+    q => nmi_ready
   );
 
-  zgna <= not zloz;
+  -- ZGNA
+  nmi_trigger_n <= not nmi_trigger;
 
-  znda <= reset_sync or decoder.op_reti_s011;
-
-  zrsy_inst: entity work.srlatch
+  -- ZRSY
+  nmi_en_inst: entity work.srlatch
   port map (
-    s => znda,
-    nr => zgna,
-    q => zrsy
+    -- ZDNA
+    s => (reset_sync or decoder.op_reti_s011),
+    nr => nmi_trigger_n,
+    q => nmi_en
   );
 
-  zoxc <= zrsy nand zjje;
+  -- ZOXC
+  irq_en_n <= nmi_en nand ime;
 
-  zwuu <= not (
+  -- ZWUU
+  ime_reset_n <= not (
     (
       (
-        (zacw and zkdu) or
+        (intr_dispatch and nmi_ready) or -- "dispatching maskable irq"
         (decoder.op_di_ei_s0xx and not ir_reg(3)) -- includes ZEVO
       ) and not phi
     ) or reset_sync
   );
 
-  zjje_inst: entity work.srlatch
+  -- ZJJE
+  ime_inst: entity work.srlatch
   port map (
-    s => zbpp,
-    nr => zwuu,
-    q => zjje
+    s => ime_set,
+    nr => ime_reset_n,
+    q => ime
   );
 
-  zbpp <= (
-    (decoder.op_reti_s011 and zkdu) or
+  -- ZBPP
+  ime_set <= (
+    (decoder.op_reti_s011 and nmi_ready) or -- "returning from maskable irq"
     (decoder.op_di_ei_s0xx and ir_reg(3))
   ) and not phi;
 
