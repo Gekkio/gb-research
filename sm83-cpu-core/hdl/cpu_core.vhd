@@ -60,15 +60,15 @@ architecture asic of cpu_core is
   signal flags: cpu_flags;
   signal carry: std_ulogic;
 
-  signal intr_dispatch: std_ulogic;
+  signal intr: std_ulogic;
   signal cb_mode: std_ulogic;
   signal state: std_ulogic_vector(2 downto 0);
   signal data_lsb: std_ulogic;
 
-  signal nmi_trigger: std_ulogic;
+  signal nmi_dispatch: std_ulogic;
   signal intr_addr: std_ulogic_vector(7 downto 3);
-  signal intr_trigger: std_ulogic;
-  signal irq_trigger: std_ulogic;
+  signal intr_wake: std_ulogic;
+  signal irq_req: std_ulogic;
 begin
   io_cell_gen: for i in 0 to 7 generate
     io_cell_inst: entity work.io_cell
@@ -87,7 +87,7 @@ begin
     clk => clk,
     phi => phi,
     writeback => writeback,
-    intr_dispatch => intr_dispatch,
+    intr => intr,
     cb_mode => cb_mode,
     ir_reg => ir_reg,
     state => state,
@@ -175,14 +175,14 @@ begin
     reset_ack => reset_ack,
     decoder => decoder,
     cc_match => cc_match,
-    intr_trigger => intr_trigger,
-    irq_trigger => irq_trigger,
+    intr_wake => intr_wake,
+    irq_req => irq_req,
     ir_reg => ir_reg,
     state => state,
     cb_mode => cb_mode,
-    intr_dispatch => intr_dispatch,
+    intr => intr,
     data_lsb => data_lsb,
-    nmi_trigger => nmi_trigger,
+    nmi_dispatch => nmi_dispatch,
     rd => rd,
     memrq => memrq,
     cpuclk_en => cpuclk_en,
@@ -199,11 +199,11 @@ begin
     wr => wr,
     rd => rd,
     irq => irq,
-    nmi_trigger => nmi_trigger,
+    nmi_dispatch => nmi_dispatch,
     int_s110 => decoder.int_s110,
     intr_addr => intr_addr,
+    intr_wake => intr_wake,
     irq_ack => irq_ack,
-    intr_trigger => intr_trigger,
-    irq_trigger => irq_trigger
+    irq_req => irq_req
   );
 end architecture;

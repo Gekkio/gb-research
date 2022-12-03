@@ -17,12 +17,12 @@ entity interrupts is
     wr: in std_ulogic;
     rd: in std_ulogic;
     irq: in std_ulogic_vector(7 downto 0);
-    nmi_trigger: in std_ulogic;
+    nmi_dispatch: in std_ulogic;
     int_s110: in std_ulogic;
     intr_addr: out std_ulogic_vector(7 downto 3);
+    intr_wake: out std_ulogic;
     irq_ack: out std_ulogic_vector(7 downto 0);
-    irq_trigger: out std_ulogic;
-    intr_trigger: out std_ulogic
+    irq_req: out std_ulogic
   );
 end entity;
 
@@ -52,14 +52,14 @@ begin
     data(i) <= '0' when not ie_reg(i) and addr_ffff and rd else 'Z';
   end generate;
 
-  intr_trigger <= (or irq_latch) or nmi_trigger;
+  intr_wake <= (or irq_latch) or nmi_dispatch;
   irq_ack <= irq_prio and int_s110;
 
   intr_addr(3) <= writeback and (irq_ack(1) or irq_ack(3) or irq_ack(5) or irq_ack(7));
   intr_addr(4) <= writeback and (irq_ack(2) or irq_ack(3) or irq_ack(6) or irq_ack(7));
   intr_addr(5) <= writeback and (irq_ack(4) or irq_ack(6) or irq_ack(7));
-  intr_addr(6) <= int_s110 and irq_trigger;
-  intr_addr(7) <= int_s110 and nmi_trigger;
+  intr_addr(6) <= int_s110 and irq_req;
+  intr_addr(7) <= int_s110 and nmi_dispatch;
 
   irq_latch_gen: for i in 0 to 7 generate
     irq_latch_inst: entity work.dlatch
@@ -70,14 +70,14 @@ begin
     );
   end generate;
 
-  irq_prio(0) <= '1' when irq_latch ?= "-------1" and not nmi_trigger else '0';
-  irq_prio(1) <= '1' when irq_latch ?= "------10" and not nmi_trigger else '0';
-  irq_prio(2) <= '1' when irq_latch ?= "-----100" and not nmi_trigger else '0';
-  irq_prio(3) <= '1' when irq_latch ?= "----1000" and not nmi_trigger else '0';
-  irq_prio(4) <= '1' when irq_latch ?= "---10000" and not nmi_trigger else '0';
-  irq_prio(5) <= '1' when irq_latch ?= "--100000" and not nmi_trigger else '0';
-  irq_prio(6) <= '1' when irq_latch ?= "-1000000" and not nmi_trigger else '0';
-  irq_prio(7) <= '1' when irq_latch ?= "10000000" and not nmi_trigger else '0';
+  irq_prio(0) <= '1' when irq_latch ?= "-------1" and not nmi_dispatch else '0';
+  irq_prio(1) <= '1' when irq_latch ?= "------10" and not nmi_dispatch else '0';
+  irq_prio(2) <= '1' when irq_latch ?= "-----100" and not nmi_dispatch else '0';
+  irq_prio(3) <= '1' when irq_latch ?= "----1000" and not nmi_dispatch else '0';
+  irq_prio(4) <= '1' when irq_latch ?= "---10000" and not nmi_dispatch else '0';
+  irq_prio(5) <= '1' when irq_latch ?= "--100000" and not nmi_dispatch else '0';
+  irq_prio(6) <= '1' when irq_latch ?= "-1000000" and not nmi_dispatch else '0';
+  irq_prio(7) <= '1' when irq_latch ?= "10000000" and not nmi_dispatch else '0';
 
-  irq_trigger <= or(irq_prio) and writeback;
+  irq_req <= or(irq_prio) and writeback;
 end architecture;

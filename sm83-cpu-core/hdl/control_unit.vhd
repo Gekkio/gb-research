@@ -25,14 +25,14 @@ entity control_unit is
     reset_ack: in std_ulogic;
     decoder: in decoder_type;
     cc_match: in std_ulogic;
-    intr_trigger: in std_ulogic;
-    irq_trigger: in std_ulogic;
+    intr_wake: in std_ulogic;
+    irq_req: in std_ulogic;
     ir_reg: in std_ulogic_vector(7 downto 0);
     state: out std_ulogic_vector(2 downto 0);
     cb_mode: out std_ulogic;
-    intr_dispatch: out std_ulogic;
+    intr: out std_ulogic;
     data_lsb: out std_ulogic;
-    nmi_trigger: out std_ulogic;
+    nmi_dispatch: out std_ulogic;
     rd: out std_ulogic;
     memrq: out std_ulogic;
     cpuclk_en: out std_ulogic;
@@ -46,7 +46,7 @@ architecture asic of control_unit is
   signal reset_op_ext: std_ulogic := '0';
   signal op_stop: std_ulogic;
   signal reset_any: std_ulogic;
-  signal halt_req, stop_req, intr_req: std_ulogic;
+  signal halt_req, stop_req, intr_wake_sync: std_ulogic;
   signal cpuclk_shdn, sysclk_shdn: std_ulogic;
 
   signal xurg: std_ulogic;
@@ -75,10 +75,10 @@ begin
   -- ZBJV
   sysclk_en <= not sysclk_shdn;
 
-  -- ==== decoder intr_dispatch flag
+  -- ==== decoder intr flag
 
   -- XYGB
-  intr_dispatch <= zacw or reset_op_int or reset_op_ext;
+  intr <= zacw or reset_op_int or reset_op_ext;
 
   -- ==== decoder cb_mode flag
 
@@ -141,11 +141,11 @@ begin
   yoii_inst: entity work.dff
   port map (
     clk => mclk_pulse,
-    d => intr_trigger,
-    q => intr_req
+    d => intr_wake,
+    q => intr_wake_sync
   );
 
-  ykua <= not ((intr_req or yolu) and not reset_any);
+  ykua <= not ((intr_wake_sync or yolu) and not reset_any);
 
   yolu <= zorp nor (not zaza);
 
@@ -168,7 +168,7 @@ begin
   -- YCNF
   reset_op_int <= cpuclk_shdn or reset_sync or reset_op_ext;
 
-  yneu <= not ((decoder.int_s110 and nmi_trigger) or reset_sync);
+  yneu <= not ((decoder.int_s110 and nmi_dispatch) or reset_sync);
 
   yepj <= not nmi;
 
@@ -229,7 +229,7 @@ begin
   port map (
     clk => mclk_pulse,
     d => zloz,
-    q => nmi_trigger
+    q => nmi_dispatch
   );
 
   zloz_inst: entity work.srlatch
@@ -266,7 +266,7 @@ begin
 
   zowa <= decoder.int_s110 nor reset_sync;
 
-  zaoc <= xogs nand irq_trigger;
+  zaoc <= xogs nand irq_req;
 
   zzom <= (not ir_reg(3)) nand decoder.op_di_ei_s0xx; -- includes ZEVO
 
