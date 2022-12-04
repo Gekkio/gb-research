@@ -6,3 +6,7 @@ __pycache__/
 /test.gb
 /vunit_out/
 /vhdl_ls.toml
+
+*.vcd
+*.gtkw
+*.ghw
