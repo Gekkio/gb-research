@@ -70,14 +70,15 @@ begin
     );
   end generate;
 
-  irq_prio(0) <= '1' when irq_latch ?= "-------1" and not nmi_dispatch else '0';
-  irq_prio(1) <= '1' when irq_latch ?= "------10" and not nmi_dispatch else '0';
-  irq_prio(2) <= '1' when irq_latch ?= "-----100" and not nmi_dispatch else '0';
-  irq_prio(3) <= '1' when irq_latch ?= "----1000" and not nmi_dispatch else '0';
-  irq_prio(4) <= '1' when irq_latch ?= "---10000" and not nmi_dispatch else '0';
-  irq_prio(5) <= '1' when irq_latch ?= "--100000" and not nmi_dispatch else '0';
-  irq_prio(6) <= '1' when irq_latch ?= "-1000000" and not nmi_dispatch else '0';
-  irq_prio(7) <= '1' when irq_latch ?= "10000000" and not nmi_dispatch else '0';
+  -- In real hardware, these signals actually use dynamic logic with writeback as the clock
+  irq_prio(0) <= '1' when irq_latch ?= "-------1" and not nmi_dispatch and writeback else '0';
+  irq_prio(1) <= '1' when irq_latch ?= "------10" and not nmi_dispatch and writeback else '0';
+  irq_prio(2) <= '1' when irq_latch ?= "-----100" and not nmi_dispatch and writeback else '0';
+  irq_prio(3) <= '1' when irq_latch ?= "----1000" and not nmi_dispatch and writeback else '0';
+  irq_prio(4) <= '1' when irq_latch ?= "---10000" and not nmi_dispatch and writeback else '0';
+  irq_prio(5) <= '1' when irq_latch ?= "--100000" and not nmi_dispatch and writeback else '0';
+  irq_prio(6) <= '1' when irq_latch ?= "-1000000" and not nmi_dispatch and writeback else '0';
+  irq_prio(7) <= '1' when irq_latch ?= "10000000" and not nmi_dispatch and writeback else '0';
 
   irq_req <= or(irq_prio) and writeback;
 end architecture;
