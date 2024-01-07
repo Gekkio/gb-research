@@ -35,7 +35,8 @@ def clean():
 def compile():
     from sm83_hdl.vunit import configure, create_vhdl_ls_config, testbench_files
 
-    ui = VUnit.from_argv(["--compile"])
+    ui = VUnit.from_argv(["--compile"], compile_builtins=False)
+    ui.add_vhdl_builtins()
     lib = configure(ui)
     lib.add_source_files(testbench_files)
 
@@ -48,7 +49,8 @@ def compile():
 def test():
     from sm83_hdl.vunit import configure
 
-    ui = VUnit.from_argv()
+    ui = VUnit.from_argv(compile_builtins=False)
+    ui.add_vhdl_builtins()
     lib = configure(ui)
     lib.add_source_files("simulation/decoder_tb.vhd")
 
@@ -58,7 +60,8 @@ def test():
 def decoder_dump():
     from sm83_hdl.vunit import configure
 
-    ui = VUnit.from_argv()
+    ui = VUnit.from_argv(compile_builtins=False)
+    ui.add_vhdl_builtins()
     lib = configure(ui)
     lib.add_source_file("simulation/decoder_tb.vhd")
 
@@ -91,7 +94,8 @@ def decoder_dump():
 def rom():
     from sm83_hdl.vunit import configure
 
-    ui = VUnit.from_argv()
+    ui = VUnit.from_argv(compile_builtins=False)
+    ui.add_vhdl_builtins()
     lib = configure(ui)
     lib.add_source_file("simulation/test_rom_tb.vhd")
 
