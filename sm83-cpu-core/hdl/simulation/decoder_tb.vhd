@@ -98,7 +98,6 @@ begin
     end loop;
 
     dump_enable <= '0';
-    dump_trigger <= '1';
     wait for 1 ns;
 
     test_runner_cleanup(runner);
@@ -183,6 +182,7 @@ begin
       while dump_enable loop
         wait until rising_edge(dump_trigger);
         dump_csv_row;
+        wait until dump_trigger = '0';
       end loop;
       info("Dumped raw decoder states to " & FILE_NAME);
 
