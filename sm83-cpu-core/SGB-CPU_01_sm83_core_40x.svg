@@ -8,7 +8,7 @@
    height="7908.52"
    viewBox="0 0 8556.5 7908.52"
    sodipodi:docname="SGB-CPU_01_sm83_core_40x.svg"
-   inkscape:version="1.2.1 (1:1.2.1+202210291243+9c6d41e410)"
+   inkscape:version="1.3.2 (1:1.3.2+202311252150+091e20ef0f)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -89,15 +89,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="3531"
-     inkscape:cy="4649"
+     inkscape:zoom="0.1767767"
+     inkscape:cx="4579.2235"
+     inkscape:cy="6016.0645"
      inkscape:window-width="2560"
      inkscape:window-height="1295"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g896" />
+     inkscape:current-layer="svg280" />
   <g
      inkscape:groupmode="layer"
      inkscape:label="Background"
@@ -21554,8 +21554,7 @@
      id="g1014"
      style="display:inline;stroke-width:4;stroke-dasharray:none"
      inkscape:label="Blocks"
-     transform="translate(0,14.234495)"
-     sodipodi:insensitive="true">
+     transform="translate(0,14.234495)">
     <g
        id="g35541"
        inkscape:label="Decoder stage 1"
@@ -23916,19 +23915,19 @@
       <rect
          style="display:inline;fill:#ffffff;fill-opacity:0.301961;fill-rule:nonzero;stroke:#000000;stroke-width:4;stroke-dasharray:none"
          id="rect312818"
-         width="246.5439"
+         width="301.37268"
          height="3329.6919"
-         x="6793.1797"
+         x="6738.3511"
          y="4351.0386" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:74.6667px;line-height:1.25;font-family:sans-serif;display:inline;fill:#000000;fill-opacity:1;stroke:#e6e6e6;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
-         x="6876.3657"
+         x="6848.9517"
          y="4434.2095"
          id="text315664"><tspan
            sodipodi:role="line"
            id="tspan315662"
-           x="6876.3657"
+           x="6848.9517"
            y="4434.2095"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke:#e6e6e6;stroke-width:2;stroke-dasharray:none;stroke-opacity:1">IE</tspan></text>
     </g>
@@ -24668,21 +24667,21 @@
        id="g96819"
        inkscape:label="IDU">
       <rect
-         style="display:inline;fill:#ffffff;fill-opacity:0.301961;fill-rule:nonzero;stroke:#000000;stroke-width:8;stroke-dasharray:none"
+         style="display:inline;fill:#ffffff;fill-opacity:0.301961;fill-rule:nonzero;stroke:#000000;stroke-width:7.91367;stroke-dasharray:none"
          id="rect94566"
-         width="493.4881"
-         height="3376.1548"
-         x="6246.7383"
-         y="4351.0386" />
+         width="340.41406"
+         height="3376.2412"
+         x="6246.6953"
+         y="4350.9956" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:74.6667px;line-height:1.25;font-family:sans-serif;display:inline;fill:#000000;fill-opacity:1;stroke:#e6e6e6;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
-         x="6418.2871"
+         x="6341.707"
          y="6065.8037"
          id="text148342"><tspan
            sodipodi:role="line"
            id="tspan148340"
-           x="6418.2871"
+           x="6341.707"
            y="6065.8037"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke:#e6e6e6;stroke-width:2;stroke-dasharray:none;stroke-opacity:1">IDU</tspan></text>
       <g
@@ -25109,6 +25108,13 @@
            x="6366.2461"
            y="4641.2334" />
       </g>
+      <rect
+         style="display:inline;fill:#ffffff;fill-opacity:0.301961;fill-rule:nonzero;stroke:#000000;stroke-width:7.75042;stroke-dasharray:none"
+         id="rect1"
+         width="151.24158"
+         height="3376.4045"
+         x="6587.1094"
+         y="4350.9141" />
     </g>
     <g
        id="g965940"
@@ -25131,19 +25137,19 @@
       <rect
          style="display:inline;fill:#ffffff;fill-opacity:0.301961;fill-rule:nonzero;stroke:#000000;stroke-width:8;stroke-dasharray:none"
          id="rect946129"
-         width="899.54553"
+         width="954.37463"
          height="3376.1548"
-         x="6793.1797"
+         x="6738.3511"
          y="4351.0386" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:74.6667px;line-height:1.25;font-family:sans-serif;display:inline;fill:#000000;fill-opacity:1;stroke:#e6e6e6;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
-         x="7027.4653"
-         y="6065.8037"
+         x="7000.0513"
+         y="6058.5664"
          id="text946134"><tspan
            sodipodi:role="line"
-           x="7027.4653"
-           y="6065.8037"
+           x="7000.0513"
+           y="6058.5664"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke:#e6e6e6;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
            id="tspan946138">Interrupts</tspan></text>
       <g

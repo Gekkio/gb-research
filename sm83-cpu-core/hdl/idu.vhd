@@ -7,17 +7,15 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.sm83_decoder.all;
 
--- Increment/Decrement Unit (IDU), with address bus output buffer
+-- Increment/Decrement Unit (IDU)
 entity idu is
   port (
     phi: in std_ulogic;
-    test_t1: in std_ulogic;
     decoder: in decoder_type;
     carry: in std_ulogic;
     z_sign: in std_ulogic;
     data_in: in std_ulogic_vector(15 downto 0);
-    data_out: out std_ulogic_vector(15 downto 0);
-    addr_out: out std_ulogic_vector(15 downto 0)
+    data_out: out std_ulogic_vector(15 downto 0)
   );
 end entity;
 
@@ -58,6 +56,4 @@ begin
 
     data_out <= data_in xor carry_out;
   end process;
-
-  addr_out <= X"ZZZZ" when test_t1 else data_in;
 end architecture;

@@ -149,14 +149,15 @@ begin
   idu_inst: entity work.idu
   port map (
     phi => phi,
-    test_t1 => test_t1,
     decoder => decoder,
     carry => carry,
     z_sign => z_reg(7),
     data_in => idu_in,
-    data_out => idu_out,
-    addr_out => addr
+    data_out => idu_out
   );
+
+  -- address bus output buffer
+  addr <= X"ZZZZ" when test_t1 else idu_in;
 
   control_unit_inst: entity work.control_unit
   port map (
