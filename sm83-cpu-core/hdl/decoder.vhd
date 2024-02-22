@@ -12,7 +12,7 @@ entity decoder is
     clk: in std_ulogic;
     phi: in std_ulogic;
     writeback: in std_ulogic;
-    intr_dispatch: in std_ulogic;
+    intr: in std_ulogic;
     cb_mode: in std_ulogic;
     ir_reg: in std_ulogic_vector(7 downto 0);
     state: in std_ulogic_vector(2 downto 0);
@@ -29,7 +29,7 @@ begin
   stage1_inst: entity work.decoder_stage1
   port map (
     clk => clk,
-    intr_dispatch => intr_dispatch,
+    intr => intr,
     cb_mode => cb_mode,
     ir_reg => ir_reg,
     state => state,

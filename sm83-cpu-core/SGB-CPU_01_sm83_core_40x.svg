@@ -925,68 +925,68 @@
        id="g412014"
        style="display:inline"
        transform="translate(0,12.5)"
-       inkscape:label="nIRQ_TRIGGER">
+       inkscape:label="nIRQ_REQ">
       <path
          style="marker-start:url(#Square)"
          d="m 7338.5165,6524.5049 -2.5018,-2091.2097 h -46.4224 l -3.7874,6.56 h -200.5122 v -18.0691 h -26.5142"
          id="path411193"
          sodipodi:nodetypes="ccccccc"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7236.9809,4513.0432 h 99.1023"
          id="path412020"
          style="marker-start:url(#Square)"
          sodipodi:nodetypes="cc"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7256.2825,4910.8023 h 80.1424"
          id="path412022"
          style="marker-start:url(#Square)"
          sodipodi:nodetypes="cc"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7275.702,5308.2852 h 61.0643"
          id="path412024"
          style="marker-start:url(#Square)"
          sodipodi:nodetypes="cc"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7294.9501,5705.8867 h 42.1578"
          id="path412026"
          sodipodi:nodetypes="cc"
          style="marker-start:url(#Square)"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7313.0965,6115.5574 h 24.3633"
          id="path412028"
          style="marker-start:url(#Square)"
          sodipodi:nodetypes="cc"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7338.5165,7105.8318 h 224.4547 v -26.7879 h 27.7057"
          id="path412780"
          sodipodi:nodetypes="cccc"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7514.4222,7105.8318 v -19.42"
          id="path412782"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="M 7338.5165,7345.3065 V 6935.2639"
          id="path413538"
          sodipodi:nodetypes="cc"
          style="marker-start:url(#Square)"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          d="m 7338.5165,6935.2639 v -410.759"
          id="path413544"
          style="marker-start:url(#Square)"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
       <path
          style="marker-start:url(#Square)"
          d="M 7579.7404,4661.0531 H 7336.2872"
          id="path413818"
-         inkscape:label="nIRQ_TRIGGER" />
+         inkscape:label="nIRQ_REQ" />
     </g>
     <g
        id="g83404"
@@ -995,172 +995,172 @@
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 7674.8673,7555.7988 v -68.6845"
          id="path591171"
-         inkscape:label="nINTR_TRIGGER_0_xxxx_xxxx" />
+         inkscape:label="nINTR_WAKE_0_xxxx_xxxx" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="M 7674.3673,7461.555 V 7075.7876"
          id="path585659"
-         inkscape:label="nINTR_TRIGGER_0_0xxx_xxxx" />
+         inkscape:label="nINTR_WAKE_0_0xxx_xxxx" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="M 7673.8673,7051.411 V 6668.4765"
          id="path585657"
-         inkscape:label="nINTR_TRIGGER_0_00xx_xxxx" />
+         inkscape:label="nINTR_WAKE_0_00xx_xxxx" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="M 7673.3673,6641.328 V 6257.8755"
          id="path585655"
-         inkscape:label="nINTR_TRIGGER_0_000x_xxxx" />
+         inkscape:label="nINTR_WAKE_0_000x_xxxx" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="M 7672.8673,6231.8044 V 5848.1498"
          id="path585653"
-         inkscape:label="nINTR_TRIGGER_0_0000_xxxx" />
+         inkscape:label="nINTR_WAKE_0_0000_xxxx" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="M 7672.3673,5822.2074 V 5450.176"
          id="path585651"
-         inkscape:label="nINTR_TRIGGER_0_0000_0xxx" />
+         inkscape:label="nINTR_WAKE_0_0000_0xxx" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 7672.8673,5425.0125 v -372.483"
          id="path585649"
-         inkscape:label="nINTR_TRIGGER_0_0000_00xx" />
+         inkscape:label="nINTR_WAKE_0_0000_00xx" />
       <path
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="M 7672.3673,5027.8653 V 4655.0245"
          id="path585647"
-         inkscape:label="nINTR_TRIGGER_0_0000_000x" />
+         inkscape:label="nINTR_WAKE_0_0000_000x" />
       <g
          id="g580805"
          style="display:inline"
-         inkscape:label="nINTR_TRIGGER">
+         inkscape:label="nINTR_WAKE">
         <path
            d="m 7670.4923,4630.4474 v -311.2232 h -297.7674 v 72.515 h -158.8697 v 23.6471 h -66.4713 v -18.4365 h -26.0489"
            id="path580802"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            d="M 7372.7249,4630.8028 V 4391.7392"
            id="path580807"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            d="m 7374.1675,5028.8827 -1.4426,-398.0799"
            id="path580809"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            style="marker-start:url(#Square)"
            d="M 7374.1675,5426.7545 V 5028.8827"
            id="path585635"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            style="marker-start:url(#Square)"
            d="M 7374.1675,5823.7526 V 5426.7545"
            id="path580811"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            d="M 7374.1675,6233.0654 V 5823.7526"
            id="path580813"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            d="m 7374.1675,6642.9184 v -409.853"
            id="path580815"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            d="M 7374.1675,7051.6966 V 6642.9184"
            id="path580817"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            d="m 7374.9353,7461.3605 -0.7678,-409.6639"
            id="path580819"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
         <path
            d="M 7374.9353,7565.8768 V 7461.3605"
            id="path580821"
            style="marker-start:url(#Square)"
-           inkscape:label="nINTR_TRIGGER" />
+           inkscape:label="nINTR_WAKE" />
       </g>
     </g>
     <g
        id="g640878"
-       inkscape:label="nNMI_TRIGGER"
+       inkscape:label="nNMI_DISPATCH"
        style="display:inline">
       <path
          d="m 7103.3119,4428.3115 h 49.3283 v 10.7185 h 92.8734"
          id="path640875"
          style="marker-start:url(#Square)"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7245.5136,4439.03 h 29.0118 l 6.6402,-11.5011 h 72.6642 l 2.9853,3119.111 h 139.7864 v -18.0201 h 105.4328 v -20.5721"
          id="path640880"
          style="marker-start:url(#Square)"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7461.0811,7546.6399 v 21.3435"
          id="path640882"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7356.6573,7381.8021 h -5.9366 v 27.613"
          id="path640884"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7356.2759,6983.2882 h -8.2518 v 26.6704"
          id="path640886"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7355.8622,6550.9887 h -7.3166 v 26.9039"
          id="path640888"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7355.4691,6140.2653 h -7.2634 v 26.2655"
          id="path640890"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7355.0778,5731.4765 h -9.2713 v 26.4833"
          id="path640892"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7354.6966,5333.2301 h -7.7738 v 27.2246"
          id="path640894"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7354.3169,4936.4114 h -6.6824 v 26.6518"
          id="path640896"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
       <path
          d="m 7353.9363,4538.7704 h -8.6345 v 28.9322"
          id="path640898"
-         inkscape:label="nNMI_TRIGGER" />
+         inkscape:label="nNMI_DISPATCH" />
     </g>
     <g
        id="g663723"
-       inkscape:label="NMI_TRIGGER"
+       inkscape:label="NMI_DISPATCH"
        style="display:inline">
       <path
          d="m 7582.8537,7518.2065 h -18.344 v 40.2168 h -49.1035 v 14.0945 h -25.6134 v 43.0699 h -47.4938 v -39.1164 h -55.886 v -20.2736"
          id="path663720"
          style="marker-start:url(#Square)"
-         inkscape:label="NMI_TRIGGER" />
+         inkscape:label="NMI_DISPATCH" />
       <path
          d="m 7485.1792,7558.4233 h 30.227"
          id="path663725"
          style="marker-start:url(#Square)"
          sodipodi:nodetypes="cc"
-         inkscape:label="NMI_TRIGGER" />
+         inkscape:label="NMI_DISPATCH" />
       <path
          d="m 7564.5097,7540.8553 h 91.6059 v 27.0206"
          id="path663727"
-         inkscape:label="NMI_TRIGGER" />
+         inkscape:label="NMI_DISPATCH" />
       <path
          d="m 7600.6406,7540.8553 v 21.7201"
          id="path663729"
-         inkscape:label="NMI_TRIGGER" />
+         inkscape:label="NMI_DISPATCH" />
     </g>
     <g
        id="g775101"
@@ -1659,12 +1659,12 @@
          d="M 3603.54,302.524 7221.4,297.565"
          id="path64359"
          style="opacity:1"
-         inkscape:label="INTR_DISPATCH" />
+         inkscape:label="INTR" />
       <path
          d="M 3603.54,285.404 7221.4,279.827"
          id="path64357"
          style="opacity:1"
-         inkscape:label="nINTR_DISPATCH" />
+         inkscape:label="nINTR" />
     </g>
     <g
        id="g860"
@@ -12161,7 +12161,7 @@
          d="m 7893.334,439.86108 v 21.4298"
          id="path26828"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="INTR_REQ" />
+         inkscape:label="INTR_WAKE_SYNC" />
       <path
          d="M 8319.5427,1042.3386 V 749.54114 h -34.4441"
          id="path28572"
@@ -20292,23 +20292,23 @@
          id="path26264"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          sodipodi:nodetypes="ccccccccccccccccccccc"
-         inkscape:label="INTR_TRIGGER" />
+         inkscape:label="INTR_WAKE" />
       <g
          id="g600799"
-         inkscape:label="IRQ_TRIGGER"
+         inkscape:label="IRQ_REQ"
          style="display:inline">
         <path
            d="m 7301.1681,4445.9368 h -38.7342 v -47.7023 h 7.2519 v -105.153 h -134.1579 v -242.4522 h -37.2274 v -92.6529 h 53.1781 v -37.2415 h 18.0652 v -35.5409 h 73.1895 v -60.061 h 62.1666 v -14.2498 h 128.6175 v -110.1075 h 316.1345 v -37.4062 h 328.6249 v 44.2963 -1195.3746 h 52.4673"
            id="path44469"
            style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
            sodipodi:nodetypes="ccccccccccccccccccccccccc"
-           inkscape:label="IRQ_TRIGGER" />
+           inkscape:label="IRQ_REQ" />
         <path
            d="m 7071.6067,4433.2977 h 26.8888 v 12.6391 h 163.9384"
            id="path600821"
            style="marker-start:url(#Square)"
            sodipodi:nodetypes="cccc"
-           inkscape:label="IRQ_TRIGGER" />
+           inkscape:label="IRQ_REQ" />
       </g>
     </g>
     <g
@@ -20413,7 +20413,7 @@
       <path
          d="m 7514.5815,304.23944 h -21.3299"
          id="path106594"
-         inkscape:label="nINTR_DISPATCH"
+         inkscape:label="nINTR"
          sodipodi:nodetypes="cc"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)" />
       <g
@@ -20444,22 +20444,22 @@
       </g>
       <g
          id="g148091"
-         inkscape:label="NMI_TRIGGER"
+         inkscape:label="NMI_DISPATCH"
          style="display:inline">
         <path
            d="m 8186.4416,1264.1945 v -6.3925 h -109.8868 v 42.5017 h -109.6979"
            id="path148063"
            style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-           inkscape:label="NMI_TRIGGER" />
+           inkscape:label="NMI_DISPATCH" />
         <path
            d="m 8186.4416,1257.802 h 134.0289 l 2.6152,2606.485 -1262.3072,1.2632 v 202.7897 h 57.0383 l -3.2507,238.8889 h 118.2755 v 111.4441 h 24.1796"
            id="path67809"
-           inkscape:label="NMI_TRIGGER"
+           inkscape:label="NMI_DISPATCH"
            sodipodi:nodetypes="cccccccccc" />
         <path
            d="m 7232.8416,4418.6729 v 12.0021 h -117.638 v -29.727 h -25.0137"
            id="path596036"
-           inkscape:label="NMI_TRIGGER" />
+           inkscape:label="NMI_DISPATCH" />
       </g>
     </g>
     <g
