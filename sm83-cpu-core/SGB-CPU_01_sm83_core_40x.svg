@@ -12118,30 +12118,30 @@
        inkscape:label="Internal">
       <g
          id="g14710"
-         inkscape:label="ZORP">
+         inkscape:label="STARTUP_DELAY_M1">
         <path
            d="M 8149.2761,460.987 V 450.00949 H 8069.04 v 110.3139 h -89.8728 v 31.10152 h -12.3103"
            id="path12376"
            sodipodi:nodetypes="ccccccc"
            style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-           inkscape:label="ZORP" />
+           inkscape:label="STARTUP_DELAY_M1" />
         <path
            d="m 8112.3603,450.00949 v -97.50492 h 18.3843"
            id="path14712"
            style="marker-end:url(#Arrow1L)"
-           inkscape:label="ZORP" />
+           inkscape:label="STARTUP_DELAY_M1" />
       </g>
       <path
          d="m 8214.7557,258.49902 v -4.23932 h -101.9712 v 30.02341 h -18.8932 v 147.95643 h -41.5742 v 98.35057 h -85.4602"
          id="path15489"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZAZA"
+         inkscape:label="STARTUP_DELAY_M2"
          sodipodi:nodetypes="ccccccccc" />
       <path
          d="m 8130.7451,673.43979 h -17.6412 V 555.20984 h 17.6412"
          id="path17876"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZIKS" />
+         inkscape:label="STARTUP_DELAY_M0" />
       <g
          id="g23688"
          inkscape:label="nRESET_ANY"
@@ -12171,7 +12171,7 @@
          d="m 7966.8569,463.19336 h 54.0865 l 0.042,453.38867 h -54.1285"
          id="path28885"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="YKUA"
+         inkscape:label="CPUCLK_WAKE_REQ"
          sodipodi:nodetypes="cccc" />
       <g
          id="g109577"
@@ -12200,7 +12200,7 @@
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 8130.7451,744.40801 h -73.5866 v 86.5447 h 51.621 v 42.27561 h 21.9656"
          id="path111578"
-         inkscape:label="ZWLM" />
+         inkscape:label="SYSCLK_WAKE_REQ" />
       <g
          id="g112692"
          inkscape:label="STOP_REQ"
@@ -12226,7 +12226,7 @@
          d="m 8130.7451,1221.1909 h -35.5329 V 688.64064 h 35.5329"
          id="path114809"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZUDN" />
+         inkscape:label="nRESET_SYNC" />
       <path
          d="m 8130.7446,1129.0895 h -71.792 V 987.07992 h 31.5676 v 25.99228 h 40.2249"
          id="path127901"
@@ -12236,104 +12236,104 @@
          d="m 7947.4741,1691.3535 v 15.1715"
          id="path219763"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="YODP" />
+         inkscape:label="NMI_PREV_DELAYED" />
       <g
          id="g215422"
-         inkscape:label="YEPJ"
+         inkscape:label="nNMI"
          style="display:inline">
         <path
            d="m 7966.8569,1386.1791 h 32.2725 v 325.7636 h -32.2725"
            id="path215390"
            style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-           inkscape:label="YEPJ" />
+           inkscape:label="nNMI" />
         <path
            style="display:inline;marker-end:url(#Arrow1L)"
            d="m 7999.1294,1497.1194 h -32.2725"
            id="path215424"
-           inkscape:label="YEPJ" />
+           inkscape:label="nNMI" />
       </g>
       <g
          id="g135590"
-         inkscape:label="YNEU">
+         inkscape:label="NMI_ACK">
         <path
            d="m 7965.6351,1325.2556 h 130.171 l -0.9687,415.1498 h 16.0311 v 25.5112 h 19.8766"
            id="path135480"
            style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-           inkscape:label="YNEU" />
+           inkscape:label="NMI_ACK" />
         <path
            style="display:inline;marker-end:url(#Arrow1L)"
            d="m 8095.2905,1546.2329 h 35.4541"
            id="path135592"
-           inkscape:label="YNEU" />
+           inkscape:label="NMI_ACK" />
       </g>
       <path
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 7868.9725,1758.8619 v 9.289 l 27.6078,15.9394 h 116.7168 l 15.5418,-6.2977 h 101.9062"
          id="path232973"
-         inkscape:label="YNIU" />
+         inkscape:label="NMI_POSEDGE" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 8212.1051,1706.2518 v -18.4217"
          id="path234900"
-         inkscape:label="ZOJZ" />
+         inkscape:label="NMI_REQ" />
       <g
          id="g64258"
          style="display:inline"
-         inkscape:label="ZKDU">
+         inkscape:label="NMI_READY">
         <path
            d="m 8267.0878,3136.2984 v 14.0164 h 92.0135 l -1.7186,-1481.7441 h -72.285"
            id="path240387"
            style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
            sodipodi:nodetypes="ccc"
-           inkscape:label="ZKDU" />
+           inkscape:label="NMI_READY" />
         <path
            d="m 8359.1013,3150.3148 0.8316,554.7282 h -74.8352"
            id="path64260"
            style="marker-end:url(#Arrow1L)"
            sodipodi:nodetypes="ccc"
-           inkscape:label="ZKDU" />
+           inkscape:label="NMI_READY" />
         <path
            d="m 8359.6307,3503.4603 h -74.533"
            id="path66034"
            style="marker-end:url(#Arrow1L)"
            sodipodi:nodetypes="cc"
-           inkscape:label="ZKDU" />
+           inkscape:label="NMI_READY" />
       </g>
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 8130.7446,1595.4475 h -22.8677 v -36.6659 h 22.8677"
          id="path242253"
-         inkscape:label="ZYOC" />
+         inkscape:label="NMI_BEGIN" />
       <g
          id="g245318"
-         inkscape:label="ZLOZ">
+         inkscape:label="NMI_TRIGGER">
         <path
            d="m 8210.8429,1484.8346 v -11.8842 h 165.1318 v -117.1231 h -90.877"
            id="path245315"
            style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
-           inkscape:label="ZLOZ" />
+           inkscape:label="NMI_TRIGGER" />
         <path
            style="display:inline;marker-end:url(#Arrow1L)"
            d="m 8375.9747,1472.9504 v 1694.4201 h -77.9075"
            id="path245320"
-           inkscape:label="ZLOZ" />
+           inkscape:label="NMI_TRIGGER" />
         <path
            style="display:inline;marker-end:url(#Arrow1L)"
            d="m 8375.9747,2298.33 h -90.877"
            id="path245322"
            sodipodi:nodetypes="cc"
-           inkscape:label="ZLOZ" />
+           inkscape:label="NMI_TRIGGER" />
       </g>
       <path
          d="m 7210.4816,1644.6561 h 6.9362 v 239.0124 h 149.5949 v 16.5927 h 28.9164 v -218.3785 h 22.5234 V 1576.652 h 61.9557 l 6.9358,6.9357 h 27.6653"
          id="path290649"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="VEQU" />
+         inkscape:label="DATA_FETCH_LSB" />
       <path
          d="m 7111.2314,1644.4098 h 13.8017"
          id="path297065"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="VILE" />
+         inkscape:label="DATA_LSB" />
       <path
          d="m 7461.3156,1223.251 v 109.2811 h 53.6937"
          id="path321145"
@@ -12373,7 +12373,7 @@
          d="m 7686.2363,745.00043 h 66.4918 V 382.96908 h -56.4832 v 42.57108 h -10.0086"
          id="path340399"
          sodipodi:nodetypes="cccccc"
-         inkscape:label="XURG" />
+         inkscape:label="CB_INSTR_EXEC" />
       <path
          d="m 7462.2293,1485.665 v 17.3864"
          id="path408832"
@@ -12404,39 +12404,39 @@
       <g
          id="g480118"
          style="display:inline"
-         inkscape:label="ZACW">
+         inkscape:label="INTR_DISPATCH">
         <path
            d="m 7668.9351,273.30042 h 107.7955 l 1.0566,1516.94538 h 42.6534 v 31.2009 h 147.6056 l 0.6591,1664.3608 h 162.0384"
            id="path35073"
            style="display:inline;marker-start:url(#Arrow1L);marker-end:url(#Arrow1L)"
            sodipodi:nodetypes="cccccccc"
-           inkscape:label="ZACW" />
+           inkscape:label="INTR_DISPATCH" />
         <path
            style="fill-rule:evenodd"
            d="m 7968.1332,2041.116 h 367.1267 v -29.9408 h 106.1485"
            id="path480120"
-           inkscape:label="ZACW" />
+           inkscape:label="INTR_DISPATCH" />
         <path
            style="marker-start:url(#Square)"
            d="m 8198.4154,2046.8953 v -5.7793"
            id="path40753"
-           inkscape:label="ZACW" />
+           inkscape:label="INTR_DISPATCH" />
       </g>
       <g
          id="g512384"
-         inkscape:label="XOGS"
+         inkscape:label="OP_BOUNDARY"
          style="display:inline">
         <path
            d="m 7632.7106,1780.8496 h 104.3062 v -8.9651 h 91.6722 v 32.8363 h 82.6105 v -19.7457 h 38.1746 v 709.5941 h 181.27"
            id="path512348"
            style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
            sodipodi:nodetypes="cccccccccc"
-           inkscape:label="XOGS" />
+           inkscape:label="OP_BOUNDARY" />
         <path
            style="display:inline;marker-end:url(#Arrow1L)"
            d="m 7949.4741,1784.9751 v -55.8013 h 67.1265 v -92.8996 h 115.9463"
            id="path512386"
-           inkscape:label="XOGS" />
+           inkscape:label="OP_BOUNDARY" />
       </g>
       <path
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
@@ -12452,12 +12452,12 @@
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 7894.1999,1586.6114 v 25.6137"
          id="path26329"
-         inkscape:label="YDXA" />
+         inkscape:label="nNMI_PREV" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 7893.831,910.79608 v 19.80976"
          id="path31641"
-         inkscape:label="YNOZ" />
+         inkscape:label="CPUCLK_SHDN_REQ" />
       <path
          d="m 7887.4745,814.0296 v 20.9598"
          id="path33479"
@@ -12467,33 +12467,33 @@
          d="M 7894.1096,526.5686 V 506.18125"
          id="path35268"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="YOLU" />
+         inkscape:label="STARTUP_BEGIN" />
       <path
          d="m 8151.1664,2249.3832 v -11.519 h -60.4369 v -99.3845 h 40.0146"
          id="path42542"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZFEX" />
+         inkscape:label="INTR_TRIGGER" />
       <path
          d="m 8200.2207,2329.8422 v -16.6128"
          id="path42584"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZKOG" />
+         inkscape:label="IRQ_TRIGGER" />
       <path
          d="m 8187.549,2414.6805 v -21.9934"
          id="path42626"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZOWA" />
+         inkscape:label="INTR_ACK" />
       <path
          d="m 8130.7441,2672.06 h -16.3801 v -269.6888 h 16.3801"
          id="path42672"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZAIJ" />
+         inkscape:label="IRQ_BEGIN" />
       <path
          d="m 8130.7437,3400.8475 h -69.9933 v -526.6846 h 45.6191 v -49.5885 h 24.3746"
          id="path49922"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          sodipodi:nodetypes="cccccc"
-         inkscape:label="ZOXC" />
+         inkscape:label="nIRQ_EN" />
       <g
          id="g60704"
          inkscape:label="ZEVO"
@@ -12516,21 +12516,21 @@
          id="path64247"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          sodipodi:nodetypes="cccccc"
-         inkscape:label="ZWUU" />
+         inkscape:label="nIME_RESET" />
       <g
          id="g88087"
-         inkscape:label="ZRSY">
+         inkscape:label="NMI_EN">
         <path
            d="m 8207.9207,3369.9059 -221.8183,0 1.2583,-324.8523 h 143.3834"
            id="path55396"
            style="marker-end:url(#Arrow1L)"
            sodipodi:nodetypes="cccc"
-           inkscape:label="ZRSY" />
+           inkscape:label="NMI_EN" />
         <path
            d="m 8207.9207,3356.0992 v 14.3557"
            id="path82171"
            style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-           inkscape:label="ZRSY" />
+           inkscape:label="NMI_EN" />
       </g>
       <path
          d="m 8285.0977,2501.2251 h 25.9375 v 176.2081 h -25.9375"
@@ -12541,24 +12541,24 @@
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 8151.2828,2576.5712 v 13.1156"
          id="path165452"
-         inkscape:label="ZZOM" />
+         inkscape:label="nOP_DI" />
       <path
          d="m 8169.8965,2605.6273 0,29.5469"
          id="path165817"
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="ZMIZ"
+         inkscape:label="OP_DI"
          sodipodi:nodetypes="cc" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 8207.9207,3559.535 0,-153.9619"
          id="path166705"
-         inkscape:label="ZJJE"
+         inkscape:label="IME"
          sodipodi:nodetypes="cc" />
       <path
          style="marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 8250.8943,3172.3705 v 6.5637 h 15.6929 v 60.7038 h -15.7643 v 30.9063"
          id="path166751"
-         inkscape:label="ZGNA" />
+         inkscape:label="nNMI_TRIGGER" />
       <path
          d="m 8194.8779,3270.5443 v 12.4069"
          id="path166797"
@@ -12568,11 +12568,11 @@
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
          d="m 8213.0409,2731.3224 v -14.2748"
          id="path166877"
-         inkscape:label="ZIVV" />
+         inkscape:label="nIRQ_READY" />
       <path
          d="m 8181.8295,3643.7152 v -11.6678"
          id="path446185"
-         inkscape:label="ZBPP"
+         inkscape:label="IME_SET"
          style="marker-end:url(#Arrow1L);marker-start:url(#Square)" />
       <path
          d="M 8255.467,2635.1742 V 2647.82"
@@ -20392,18 +20392,18 @@
       <g
          id="g102658"
          style="display:inline"
-         inkscape:label="nDATA_LSB">
+         inkscape:label="DATA_MSB">
         <path
            d="m 7515.0093,1669.6765 -17.2099,0.4537 v -8.8842 h -60.599 v -29.5116 h -184.5356 v 93.8603 l 7.765,7.7651 v 173.5253 l 11.4022,11.4021 -278.8154,1.11 v 129.0096 h 52.8333 l 1.5566,710.4927 h 22.3594 v 22.9 h 21.7187 v 140.1404"
            id="path102630"
            style="marker-start:url(#Square)"
-           inkscape:label="nDATA_LSB" />
+           inkscape:label="DATA_MSB" />
         <path
            style="display:inline;marker-end:url(#Arrow1L)"
            d="m 7066.4151,1919.105 -0.3199,-143.268 h 35.2466 v -84.1355"
            id="path103642"
            sodipodi:nodetypes="cccc"
-           inkscape:label="nDATA_LSB" />
+           inkscape:label="DATA_MSB" />
       </g>
       <path
          style="display:inline;marker-start:url(#Square)"
