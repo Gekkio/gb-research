@@ -1,3 +1,4 @@
 (sym_lib_table
+  (version 7)
   (lib (name "MBC1B")(type "KiCad")(uri "${KIPRJMOD}/MBC1B.kicad_sym")(options "")(descr ""))
 )

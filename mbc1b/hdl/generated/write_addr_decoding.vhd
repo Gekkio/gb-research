@@ -1,6 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+use work.cells.all;
+use work.modules.all;
+
 entity write_addr_decoding is
   port (
     A13_L: in std_ulogic; -- /Address Decoding (register writes)/A13_L
@@ -18,19 +21,19 @@ architecture kingfish of write_addr_decoding is
   signal A14_H: std_ulogic; -- /Address Decoding (register writes)/A14_H
   signal nA13_L: std_ulogic; -- /Address Decoding (register writes)/~{A13_L}
 begin
-  EC1_inst: entity work.INV
+  EC1_inst: INV -- EC1
   port map (
     A => nA14_H,
     Y => A14_H
   );
 
-  ED1_inst: entity work.INV
+  ED1_inst: INV -- ED1
   port map (
     A => A13_L,
     Y => nA13_L
   );
 
-  EE1_inst: entity work.NAND4
+  EE1_inst: NAND4 -- EE1
   port map (
     A => A15_L,
     B => WR,
@@ -39,7 +42,7 @@ begin
     Y => BANK2_WR
   );
 
-  EF1_inst: entity work.NAND4
+  EF1_inst: NAND4 -- EF1
   port map (
     A => A14_H,
     B => WR,
@@ -48,7 +51,7 @@ begin
     Y => MODE_WR
   );
 
-  EK1_inst: entity work.NAND4
+  EK1_inst: NAND4 -- EK1
   port map (
     A => A13_L,
     B => WR,
@@ -57,7 +60,7 @@ begin
     Y => RAMG_WR
   );
 
-  EL1_inst: entity work.NAND4
+  EL1_inst: NAND4 -- EL1
   port map (
     A => nA14_H,
     B => nA13_L,

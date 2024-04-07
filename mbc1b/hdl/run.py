@@ -13,7 +13,8 @@ source_files = [
     'mbc1b_tb.vhd',
 ]
 
-ui = VUnit.from_argv()
+ui = VUnit.from_argv(compile_builtins=False)
+ui.add_vhdl_builtins()
 ui.enable_location_preprocessing()
 ui.enable_check_preprocessing()
 

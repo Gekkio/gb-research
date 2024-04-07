@@ -1,80 +1,83 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+use work.cells.all;
+use work.modules.all;
+
 entity ramg_register is
   port (
-    RAMG_WR: in std_ulogic; -- /Address Decoding (register writes)/RAMG_WR
+    WR: in std_ulogic; -- /Address Decoding (register writes)/RAMG_WR
     nD0: in std_ulogic; -- /~{D0}
     nD1: in std_ulogic; -- /~{D1}
     nD2: in std_ulogic; -- /~{D2}
     nD3: in std_ulogic; -- /~{D3}
-    nRESET_RAMG: in std_ulogic; -- /~{RESET_RAMG}
+    nRESET: in std_ulogic; -- /~{RESET_RAMG}
     RAMG_OK: out std_ulogic -- /Address Decoding (outputs)/RAMG_OK
   );
 end entity;
 
 architecture kingfish of ramg_register is
-  signal FR1_Y: std_ulogic; -- Net-(FR1-Pad5)
+  signal FL1_Q: std_ulogic; -- unconnected-(FL1-Q-Pad4)
+  signal FM1_nQ: std_ulogic; -- unconnected-(FM1-~{Q}-Pad7)
+  signal FN1_Q: std_ulogic; -- unconnected-(FN1-Q-Pad4)
+  signal FP1_nQ: std_ulogic; -- unconnected-(FP1-~{Q}-Pad7)
+  signal FR1_Y: std_ulogic; -- Net-(FR1-Y)
   signal RAMG1: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/RAMG1
   signal RAMG3: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/RAMG3
   signal RAMG_CLK: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/RAMG_CLK
-  signal UNCONNECTED_FL1_PAD4: std_ulogic; -- unconnected-(FL1-Pad4)
-  signal UNCONNECTED_FM1_PAD7: std_ulogic; -- unconnected-(FM1-Pad7)
-  signal UNCONNECTED_FN1_PAD4: std_ulogic; -- unconnected-(FN1-Pad4)
-  signal UNCONNECTED_FP1_PAD7: std_ulogic; -- unconnected-(FP1-Pad7)
   signal nRAMG0: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/~{RAMG0}
   signal nRAMG2: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/~{RAMG2}
   signal nRAMG_CLK: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/~{RAMG_CLK}
 begin
-  FJ1_inst: entity work.INV
+  FJ1_inst: INV -- FJ1
   port map (
-    A => RAMG_WR,
+    A => WR,
     Y => nRAMG_CLK
   );
 
-  FK1_inst: entity work.INV
+  FK1_inst: INV -- FK1
   port map (
     A => nRAMG_CLK,
     Y => RAMG_CLK
   );
 
-  FL1_inst: entity work.DFFR
+  FL1_inst: DFFR -- FL1
   port map (
     CLK => RAMG_CLK,
-    Q => UNCONNECTED_FL1_PAD4,
+    Q => FL1_Q,
     nD => nD0,
     nQ => nRAMG0,
-    nRESET => nRESET_RAMG
+    nRESET => nRESET
   );
 
-  FM1_inst: entity work.DFFR
+  FM1_inst: DFFR -- FM1
   port map (
     CLK => RAMG_CLK,
     Q => RAMG1,
     nD => nD1,
-    nQ => UNCONNECTED_FM1_PAD7,
-    nRESET => nRESET_RAMG
+    nQ => FM1_nQ,
+    nRESET => nRESET
   );
 
-  FN1_inst: entity work.DFFR
+  FN1_inst: DFFR -- FN1
   port map (
     CLK => RAMG_CLK,
-    Q => UNCONNECTED_FN1_PAD4,
+    Q => FN1_Q,
     nD => nD2,
     nQ => nRAMG2,
-    nRESET => nRESET_RAMG
+    nRESET => nRESET
   );
 
-  FP1_inst: entity work.DFFR
+  FP1_inst: DFFR -- FP1
   port map (
     CLK => RAMG_CLK,
     Q => RAMG3,
     nD => nD3,
-    nQ => UNCONNECTED_FP1_PAD7,
-    nRESET => nRESET_RAMG
+    nQ => FP1_nQ,
+    nRESET => nRESET
   );
 
-  FR1_inst: entity work.NAND4
+  FR1_inst: NAND4 -- FR1
   port map (
     A => nRAMG2,
     B => RAMG1,
@@ -83,7 +86,7 @@ begin
     Y => FR1_Y
   );
 
-  FS1_inst: entity work.INV
+  FS1_inst: INV -- FS1
   port map (
     A => FR1_Y,
     Y => RAMG_OK

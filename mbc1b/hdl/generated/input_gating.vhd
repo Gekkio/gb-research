@@ -1,20 +1,23 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+use work.cells.all;
+use work.modules.all;
+
 entity input_gating is
   port (
-    A13: in std_ulogic; -- PORT#A13
-    A14: in std_ulogic; -- PORT#A14
-    A15: in std_ulogic; -- PORT#A15
-    D0: in std_ulogic; -- PORT#D0
-    D1: in std_ulogic; -- PORT#D1
-    D2: in std_ulogic; -- PORT#D2
-    D3: in std_ulogic; -- PORT#D3
-    D4: in std_ulogic; -- PORT#D4
+    A13_IN: in std_ulogic; -- /A13
+    A14_IN: in std_ulogic; -- /A14
+    A15_IN: in std_ulogic; -- /A15
+    D0_IN: in std_ulogic; -- /D0
+    D1_IN: in std_ulogic; -- /D1
+    D2_IN: in std_ulogic; -- /D2
+    D3_IN: in std_ulogic; -- /D3
+    D4_IN: in std_ulogic; -- /D4
     RESET: in std_ulogic; -- /RESET
-    nCS: in std_ulogic; -- PORT#~{CS}
-    nRD: in std_ulogic; -- PORT#~{RD}
-    nWR: in std_ulogic; -- PORT#~{WR}
+    nCS_IN: in std_ulogic; -- /~{CS}
+    nRD_IN: in std_ulogic; -- /~{RD}
+    nWR_IN: in std_ulogic; -- /~{WR}
     A13_L: out std_ulogic; -- /Address Decoding (register writes)/A13_L
     A15_L: out std_ulogic; -- /Address Decoding (register writes)/A15_L
     CS: out std_ulogic; -- /Address Decoding (outputs)/CS
@@ -33,91 +36,91 @@ end entity;
 architecture kingfish of input_gating is
   signal nRESET_NAND: std_ulogic; -- /Input Gating/~{RESET_NAND}
 begin
-  AA1_inst: entity work.NOR2_PWR
+  AA1_inst: NOR2_PWR -- AA1
   port map (
     A => RESET,
-    B => nCS,
+    B => nCS_IN,
     Y => CS
   );
 
-  AB1_inst: entity work.NOR2_PWR
+  AB1_inst: NOR2_PWR -- AB1
   port map (
     A => RESET,
-    B => nWR,
+    B => nWR_IN,
     Y => WR
   );
 
-  AC1_inst: entity work.NOR2_PWR
+  AC1_inst: NOR2_PWR -- AC1
   port map (
     A => RESET,
-    B => A15,
+    B => A15_IN,
     Y => A15_L
   );
 
-  AD1_inst: entity work.NAND2_PWR
+  AD1_inst: NAND2_PWR -- AD1
   port map (
-    A => A14,
+    A => A14_IN,
     B => nRESET_NAND,
     Y => nA14_H
   );
 
-  AE1_inst: entity work.NAND2_PWR
+  AE1_inst: NAND2_PWR -- AE1
   port map (
-    A => A15,
+    A => A15_IN,
     B => nRESET_NAND,
     Y => nA15_H
   );
 
-  AF1_inst: entity work.NOR2_PWR
+  AF1_inst: NOR2_PWR -- AF1
   port map (
     A => RESET,
-    B => A13,
+    B => A13_IN,
     Y => A13_L
   );
 
-  BA1_inst: entity work.NAND2_PWR
+  BA1_inst: NAND2_PWR -- BA1
   port map (
     A => nRESET_NAND,
-    B => D1,
+    B => D1_IN,
     Y => nD1
   );
 
-  BB1_inst: entity work.NAND2_PWR
+  BB1_inst: NAND2_PWR -- BB1
   port map (
     A => nRESET_NAND,
-    B => D0,
+    B => D0_IN,
     Y => nD0
   );
 
-  CA1_inst: entity work.NAND2_PWR
+  CA1_inst: NAND2_PWR -- CA1
   port map (
-    A => D2,
+    A => D2_IN,
     B => nRESET_NAND,
     Y => nD2
   );
 
-  CB1_inst: entity work.NAND2_PWR
+  CB1_inst: NAND2_PWR -- CB1
   port map (
-    A => D3,
+    A => D3_IN,
     B => nRESET_NAND,
     Y => nD3
   );
 
-  CC1_inst: entity work.NAND2_PWR
+  CC1_inst: NAND2_PWR -- CC1
   port map (
-    A => D4,
+    A => D4_IN,
     B => nRESET_NAND,
     Y => nD4
   );
 
-  DA1_inst: entity work.NAND2_PWR
+  DA1_inst: NAND2_PWR -- DA1
   port map (
-    A => nRD,
+    A => nRD_IN,
     B => nRESET_NAND,
     Y => RD_OR_RESET
   );
 
-  EA1_inst: entity work.INV
+  EA1_inst: INV -- EA1
   port map (
     A => RESET,
     Y => nRESET_NAND

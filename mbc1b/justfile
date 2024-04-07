@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2020-2024 Joonas Javanainen <joonas.javanainen@gmail.com>
+
+# SPDX-License-Identifier: CC0-1.0
+
+kingfish-watch:
+  kingfish -i {{justfile_directory()}}/schematic/MBC1B.kicad_sch -o {{justfile_directory()}}/hdl/generated --vhdl

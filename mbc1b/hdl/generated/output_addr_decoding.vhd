@@ -1,6 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+use work.cells.all;
+use work.modules.all;
+
 entity output_addr_decoding is
   port (
     BANK1_0: in std_ulogic; -- /Address Decoding (outputs)/BANK1_0
@@ -33,30 +36,30 @@ end entity;
 
 architecture kingfish of output_addr_decoding is
   signal A14_H: std_ulogic; -- /Address Decoding (outputs)/A14_H
-  signal EP1_nY: std_ulogic; -- Net-(EN1-Pad1)
-  signal FE1_nY: std_ulogic; -- Net-(FE1-Pad5)
-  signal FG1_nY: std_ulogic; -- Net-(FG1-Pad5)
-  signal GD1_Y: std_ulogic; -- Net-(GD1-Pad3)
-  signal GJ1_Y: std_ulogic; -- Net-(GJ1-Pad3)
-  signal GL1_Y: std_ulogic; -- Net-(GL1-Pad3)
-  signal GN1_Y: std_ulogic; -- Net-(GN1-Pad3)
-  signal GR1_Y: std_ulogic; -- Net-(GR1-Pad5)
-  signal GU1_Y: std_ulogic; -- Net-(GU1-Pad3)
+  signal EP1_nY: std_ulogic; -- Net-(EN1-A)
+  signal FE1_nY: std_ulogic; -- Net-(FE1-~{Y})
+  signal FG1_nY: std_ulogic; -- Net-(FG1-~{Y})
+  signal GD1_Y: std_ulogic; -- Net-(GD1-Y)
+  signal GJ1_Y: std_ulogic; -- Net-(GJ1-Y)
+  signal GL1_Y: std_ulogic; -- Net-(GL1-Y)
+  signal GN1_Y: std_ulogic; -- Net-(GN1-Y)
+  signal GR1_Y: std_ulogic; -- Net-(GR1-Y)
+  signal GU1_Y: std_ulogic; -- Net-(GU1-Y)
   signal ROM_CS: std_ulogic; -- /Address Decoding (outputs)/ROM_CS
 begin
-  EM1_inst: entity work.INV
+  EM1_inst: INV -- EM1
   port map (
     A => nA14_H,
     Y => A14_H
   );
 
-  EN1_inst: entity work.INV
+  EN1_inst: INV -- EN1
   port map (
     A => EP1_nY,
     Y => RA14_OUT
   );
 
-  EP1_inst: entity work.AOI22
+  EP1_inst: AOI22 -- EP1
   port map (
     A => A14_H,
     B => BANK1_ZERO,
@@ -65,7 +68,7 @@ begin
     nY => EP1_nY
   );
 
-  FE1_inst: entity work.OAI21
+  FE1_inst: OAI21 -- FE1
   port map (
     A => BANK2_1,
     B => MODE,
@@ -73,13 +76,13 @@ begin
     nY => FE1_nY
   );
 
-  FF1_inst: entity work.INV
+  FF1_inst: INV -- FF1
   port map (
     A => FE1_nY,
     Y => AA14_OUT
   );
 
-  FG1_inst: entity work.OAI21
+  FG1_inst: OAI21 -- FG1
   port map (
     A => BANK2_0,
     B => MODE,
@@ -87,65 +90,65 @@ begin
     nY => FG1_nY
   );
 
-  FH1_inst: entity work.INV
+  FH1_inst: INV -- FH1
   port map (
     A => FG1_nY,
     Y => AA13_OUT
   );
 
-  GD1_inst: entity work.NAND2
+  GD1_inst: NAND2 -- GD1
   port map (
     A => BANK1_1,
     B => A14_H,
     Y => GD1_Y
   );
 
-  GH1_inst: entity work.INV
+  GH1_inst: INV -- GH1
   port map (
     A => GD1_Y,
     Y => RA15_OUT
   );
 
-  GJ1_inst: entity work.NAND2
+  GJ1_inst: NAND2 -- GJ1
   port map (
     A => BANK1_2,
     B => A14_H,
     Y => GJ1_Y
   );
 
-  GK1_inst: entity work.INV
+  GK1_inst: INV -- GK1
   port map (
     A => GJ1_Y,
     Y => RA16_OUT
   );
 
-  GL1_inst: entity work.NAND2
+  GL1_inst: NAND2 -- GL1
   port map (
     A => BANK1_3,
     B => A14_H,
     Y => GL1_Y
   );
 
-  GM1_inst: entity work.INV
+  GM1_inst: INV -- GM1
   port map (
     A => GL1_Y,
     Y => RA17_OUT
   );
 
-  GN1_inst: entity work.NAND2
+  GN1_inst: NAND2 -- GN1
   port map (
     A => BANK1_4,
     B => A14_H,
     Y => GN1_Y
   );
 
-  GP1_inst: entity work.INV
+  GP1_inst: INV -- GP1
   port map (
     A => GN1_Y,
     Y => RA18_OUT
   );
 
-  GR1_inst: entity work.NAND4
+  GR1_inst: NAND4 -- GR1
   port map (
     A => nRESET_RAMG,
     B => nA14_H,
@@ -154,32 +157,32 @@ begin
     Y => GR1_Y
   );
 
-  GS1_inst: entity work.INV
+  GS1_inst: INV -- GS1
   port map (
     A => RAM_CS_OUT,
     Y => nRAM_CS_OUT
   );
 
-  GT1_inst: entity work.INV
+  GT1_inst: INV -- GT1
   port map (
     A => GR1_Y,
     Y => RAM_CS_OUT
   );
 
-  GU1_inst: entity work.NAND2
+  GU1_inst: NAND2 -- GU1
   port map (
     A => nA15_H,
     B => RD_OR_RESET,
     Y => GU1_Y
   );
 
-  GV1_inst: entity work.INV
+  GV1_inst: INV -- GV1
   port map (
     A => GU1_Y,
     Y => ROM_CS
   );
 
-  GX1_inst: entity work.INV
+  GX1_inst: INV -- GX1
   port map (
     A => ROM_CS,
     Y => nROM_CS_OUT
