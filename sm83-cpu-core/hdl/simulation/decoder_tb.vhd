@@ -90,6 +90,15 @@ begin
                 check_equal(or to_stdulogicvector(stage2), '0', result("for CLK=0,PHI=1 check stage 2"));
                 check_equal(or to_stdulogicvector(stage3), '0', result("for CLK=0,PHI=1 check stage 3"));
                 check_equal(or to_stdulogicvector(outputs), '0', result("for CLK=0,PHI=1 check"));
+
+                clk <= '0';
+                phi <= '0';
+                wait for 1 ns;
+
+                check_equal(or to_stdulogicvector(stage1), '0', result("for CLK=0,PHI=0 check stage 1"));
+                check_equal(or to_stdulogicvector(stage2), '0', result("for CLK=0,PHI=0 check stage 2"));
+                check_equal(or to_stdulogicvector(stage3), '0', result("for CLK=0,PHI=0 check stage 3"));
+                check_equal(or to_stdulogicvector(outputs), '0', result("for CLK=0,PHI=0 check"));
               end loop;
             end loop;
           end loop;
@@ -148,7 +157,7 @@ begin
       procedure print_csv_header is
         variable output_line: line;
       begin
-        write(output_line, string'("intr,cb_mode,ir_reg,state,writeback,data_lsb,stage1,stage2,stage3,outputs"));
+        write(output_line, string'("intr,cb_mode,ir_reg,state,phi,writeback,data_lsb,stage1,stage2,stage3,outputs"));
         writeline(output_file, output_line);
       end procedure;
 
@@ -162,6 +171,8 @@ begin
         hwrite(output_line, inputs.ir_reg);
         write(output_line, string'(","));
         write(output_line, inputs.state);
+        write(output_line, string'(","));
+        write(output_line, phi);
         write(output_line, string'(","));
         write(output_line, inputs.writeback);
         write(output_line, string'(","));
