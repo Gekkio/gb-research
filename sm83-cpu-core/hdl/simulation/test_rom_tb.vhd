@@ -59,7 +59,7 @@ begin
       end if;
       wait until rising_edge(m1);
       wait until bus_ctrl.rd;
-      wait until data'stable(10 ns);
+      wait until rising_edge(clocks.writeback);
       if stored_addr ?= bus_ctrl.addr then
         if terminate_on_infinite_jr and to_ux01(data) = X"18" then
           info("Terminating: infinite JR loop");
@@ -72,8 +72,8 @@ begin
           exit;
         end if;
       end if;
-      stored_addr := bus_ctrl.addr;
-      stored_data := data;
+      stored_addr := to_ux01(bus_ctrl.addr);
+      stored_data := to_ux01(data);
       wait until rising_edge(clocks.mclk_pulse);
       instruction_count := instruction_count + 1;
     end loop;
@@ -96,6 +96,16 @@ begin
     boot_en => boot_en,
     m1 => m1
   );
+
+  ppu: process(all)
+  begin
+    data <= X"ZZ";
+    if bus_ctrl.rd then
+      if bus_ctrl.addr ?= X"FF44" then
+        data <= X"90";
+      end if;
+    end if;
+  end process;
 
   external_rom: process(all)
   begin
