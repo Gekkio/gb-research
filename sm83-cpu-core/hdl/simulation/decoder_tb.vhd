@@ -26,7 +26,7 @@ architecture tb of decoder_tb is
 
   type inputs_type is record
     writeback: std_ulogic;
-    intr_dispatch: std_ulogic;
+    intr: std_ulogic;
     cb_mode: std_ulogic;
     data_lsb: std_ulogic;
     ir_reg: std_ulogic_vector(7 downto 0);
@@ -58,8 +58,8 @@ begin
   begin
     test_runner_setup(runner, runner_cfg);
 
-    for intr_dispatch in std_ulogic range '0' to '1' loop
-      inputs.intr_dispatch <= intr_dispatch;
+    for intr in std_ulogic range '0' to '1' loop
+      inputs.intr <= intr;
       for cb_mode in std_ulogic range '0' to '1' loop
         inputs.cb_mode <= cb_mode;
         for ir_reg in 0 to 255 loop
@@ -107,7 +107,7 @@ begin
   stage1_inst: entity sm83.decoder_stage1
   port map (
     clk => clk,
-    intr_dispatch => inputs.intr_dispatch,
+    intr => inputs.intr,
     cb_mode => inputs.cb_mode,
     ir_reg => inputs.ir_reg,
     state => inputs.state,
@@ -148,14 +148,14 @@ begin
       procedure print_csv_header is
         variable output_line: line;
       begin
-        write(output_line, string'("intr_dispatch,cb_mode,ir_reg,state,writeback,data_lsb,stage1,stage2,stage3,outputs"));
+        write(output_line, string'("intr,cb_mode,ir_reg,state,writeback,data_lsb,stage1,stage2,stage3,outputs"));
         writeline(output_file, output_line);
       end procedure;
 
       procedure dump_csv_row is
         variable output_line: line;
       begin
-        write(output_line, inputs.intr_dispatch);
+        write(output_line, inputs.intr);
         write(output_line, string'(","));
         write(output_line, inputs.cb_mode);
         write(output_line, string'(",0x"));
