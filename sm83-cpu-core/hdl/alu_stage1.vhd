@@ -48,33 +48,49 @@ begin
     (decoder.alu_set and ir_reg(5 downto 3) ?= "000")
   ) when clk else '0';
 
-  hf_next <= (
-    decoder.alu_logic_and or
-    decoder.cb_bit or
-    (decoder.op_pop_sx10 and z_reg(5)) or
-    decoder.alu_cpl or
-    (decoder.alu_sum_neg_hf_nf and not inputs.half_carry) or
-    (
-      (
-        decoder.alu_sum_pos_hf_cf or
-        (decoder.op_incdec8 and ir_reg(0) ?= '0') -- INC only
-      ) and inputs.half_carry ?= '1'
-    )
-  ) when writeback else '0'; -- TODO: non-symmetrical clock and writeback_ext
+  process(all)
+  begin
+    if writeback then
+      hf_next <= (
+        decoder.alu_logic_and or
+        decoder.cb_bit or
+        (decoder.op_pop_sx10 and z_reg(5)) or
+        decoder.alu_cpl or
+        (decoder.alu_sum_neg_hf_nf and not inputs.half_carry) or
+        (
+          (
+            decoder.alu_sum_pos_hf_cf or
+            (decoder.op_incdec8 and ir_reg(0) ?= '0') -- INC only
+          ) and inputs.half_carry ?= '1'
+        )
+      );
+    end if;
+    if not writeback_ext then
+      hf_next <= '0';
+    end if;
+  end process;
 
-  cf_next <= (
-    (decoder.alu_rotate_shift_right and operand_b(0)) or
-    (decoder.op_pop_sx10 and z_reg(4)) or
-    (decoder.alu_ccf_scf and ir_reg(3) ?= '0') or -- SCF only
-    (decoder.alu_ccf_scf and ir_reg(3) ?= '1' and not cf) or -- CCF only
-    (decoder.alu_sum_pos_hf_cf and inputs.carry) or
-    (decoder.alu_sum_neg_cf and not inputs.carry) or
-    (decoder.alu_rotate_shift_left and operand_b(7)) or
-    (decoder.alu_cpl and cf) or
-    (decoder.alu_daa and (
-      cf or (not nf and inputs.carry)
-    ))
-  ) when writeback else '0'; -- TODO: non-symmetrical clock and writeback_ext
+  process(all)
+  begin
+    if writeback then
+      cf_next <= (
+        (decoder.alu_rotate_shift_right and operand_b(0)) or
+        (decoder.op_pop_sx10 and z_reg(4)) or
+        (decoder.alu_ccf_scf and ir_reg(3) ?= '0') or -- SCF only
+        (decoder.alu_ccf_scf and ir_reg(3) ?= '1' and not cf) or -- CCF only
+        (decoder.alu_sum_pos_hf_cf and inputs.carry) or
+        (decoder.alu_sum_neg_cf and not inputs.carry) or
+        (decoder.alu_rotate_shift_left and operand_b(7)) or
+        (decoder.alu_cpl and cf) or
+        (decoder.alu_daa and (
+          cf or (not nf and inputs.carry)
+        ))
+      );
+    end if;
+    if not writeback_ext then
+      cf_next <= '0';
+    end if;
+  end process;
 
   operand_a(1) <= (
     q_bus(1) or
@@ -112,12 +128,20 @@ begin
     ))
   ) when clk else '0';
 
-  nf_next <= (
-    (decoder.alu_daa and nf) or
-    decoder.alu_sum_neg_hf_nf or
-    decoder.alu_cpl or
-    (decoder.op_pop_sx10 and z_reg(6))
-  ) when writeback else '0'; -- TODO: non-symmetrical clock and writeback_ext
+  process(all)
+  begin
+    if writeback then
+      nf_next <= (
+        (decoder.alu_daa and nf) or
+        decoder.alu_sum_neg_hf_nf or
+        decoder.alu_cpl or
+        (decoder.op_pop_sx10 and z_reg(6))
+      );
+    end if;
+    if not writeback_ext then
+      nf_next <= '0';
+    end if;
+  end process;
 
   operand_a(5) <= (
     q_bus(5) or
@@ -148,46 +172,62 @@ begin
     ))
   ) when clk else '0';
 
-  outputs.cc_match <= (
-    (
-      (cf and ir_reg(4 downto 3) ?= "10") or
-      (not cf and ir_reg(4 downto 3) ?= "11") or
-      (not zf and ir_reg(4 downto 3) ?= "01") or
-      (zf and ir_reg(4 downto 3) ?= "00")
-    ) and decoder.cc_check
-  ) when writeback else '0';
+  process(all)
+  begin
+    if writeback then
+      outputs.cc_match <= (
+        (
+          (cf and ir_reg(4 downto 3) ?= "10") or
+          (not cf and ir_reg(4 downto 3) ?= "11") or
+          (not zf and ir_reg(4 downto 3) ?= "01") or
+          (zf and ir_reg(4 downto 3) ?= "00")
+        ) and decoder.cc_check
+      );
+    end if;
+    if not writeback_ext then
+      outputs.cc_match <= '0';
+    end if;
+  end process;
 
-  zf_next <= (
-    -- BIT opcodes set ZF based on one individual bit
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "000" and operand_b(0)) or
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "001" and operand_b(1)) or
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "010" and operand_b(2)) or
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "011" and operand_b(3)) or
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "100" and operand_b(4)) or
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "101" and operand_b(5)) or
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "110" and operand_b(6)) or
-    (decoder.cb_bit and ir_reg(5 downto 3) ?= "111" and operand_b(7)) or
-    -- ALU operations that set ZF based on the result
-    (
-      (
-        decoder.cb_00_to_3f or
-        decoder.op_alu8 or
-        decoder.op_incdec8 or
-        decoder.alu_daa
-      ) and inputs.zero
-    ) or
-    -- POP AF sets all flags
-    (decoder.op_pop_sx10 and z_reg(7)) or
-    -- ALU operations that retain old ZF
-    (
-      (
-        decoder.alu_cpl or
-        decoder.op_add_hl_sxx0 or
-        decoder.alu_ccf_scf or
-        decoder.op_add_hl_sx01
-      ) and zf
-    )
-  ) when writeback else '0'; -- TODO: non-symmetrical clock and writeback_ext
+  process(all)
+  begin
+    if writeback then
+      zf_next <= (
+        -- BIT opcodes set ZF based on one individual bit
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "000" and operand_b(0)) or
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "001" and operand_b(1)) or
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "010" and operand_b(2)) or
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "011" and operand_b(3)) or
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "100" and operand_b(4)) or
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "101" and operand_b(5)) or
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "110" and operand_b(6)) or
+        (decoder.cb_bit and ir_reg(5 downto 3) ?= "111" and operand_b(7)) or
+        -- ALU operations that set ZF based on the result
+        (
+          (
+            decoder.cb_00_to_3f or
+            decoder.op_alu8 or
+            decoder.op_incdec8 or
+            decoder.alu_daa
+          ) and inputs.zero
+        ) or
+        -- POP AF sets all flags
+        (decoder.op_pop_sx10 and z_reg(7)) or
+        -- ALU operations that retain old ZF
+        (
+          (
+            decoder.alu_cpl or
+            decoder.op_add_hl_sxx0 or
+            decoder.alu_ccf_scf or
+            decoder.op_add_hl_sx01
+          ) and zf
+        )
+      );
+    end if;
+    if not writeback_ext then
+      zf_next <= '0';
+    end if;
+  end process;
 
   outputs.carry_in <= (
     (decoder.alu_add_adc and ir_reg(3) ?= '1' and cf) or -- ADC only

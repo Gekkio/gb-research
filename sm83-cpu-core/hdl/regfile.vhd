@@ -173,25 +173,49 @@ begin
   mux_idu_to_w_reg <= decoder.op_ld_nn_sp_s010 or decoder.op_jr_any_sx01;
   w_reg_in_n <= (not idu_out(15 downto 8)) when mux_idu_to_w_reg else (not p_bus);
 
-  sp_reg_in_n_gen: for i in 0 to 15 generate
-    sp_reg_in_n(i) <= '0' when wz_reg(i) and decoder.oe_wzreg_to_spreg and writeback else 'Z';
-    sp_reg_in_n(i) <= '0' when idu_out(i) and decoder.oe_idu_to_spreg and writeback else 'Z';
-  end generate;
-  sp_reg_in_n <= (others => '1') when not writeback_ext else (others => 'H');
+  process(all)
+  begin
+    if writeback then
+      for i in 0 to 15 loop
+        if wz_reg(i) and decoder.oe_wzreg_to_spreg then
+          sp_reg_in_n(i) <= '0';
+        end if;
+        if idu_out(i) and decoder.oe_idu_to_spreg then
+          sp_reg_in_n(i) <= '0';
+        end if;
+      end loop;
+    end if;
+    if not writeback_ext then
+      sp_reg_in_n <= (others => '1');
+    end if;
+  end process;
 
-  pc_reg_in_n_gen: for i in 0 to 15 generate
-    pc_reg_in_n(i) <= '0' when wz_reg(i) and decoder.oe_wzreg_to_pcreg and writeback else 'Z';
-    pc_reg_in_n(i) <= '0' when idu_out(i) and decoder.oe_idu_to_pcreg and writeback else 'Z';
-  end generate;
-  pc_reg_in_n(3) <= '0' when ir_reg(3) and decoder.op_rst_sx10 and writeback else 'Z';
-  pc_reg_in_n(4) <= '0' when ir_reg(4) and decoder.op_rst_sx10 and writeback else 'Z';
-  pc_reg_in_n(5) <= '0' when ir_reg(5) and decoder.op_rst_sx10 and writeback else 'Z';
-  pc_reg_in_n(3) <= '0' when intr_addr(3) and writeback else 'Z';
-  pc_reg_in_n(4) <= '0' when intr_addr(4) and writeback else 'Z';
-  pc_reg_in_n(5) <= '0' when intr_addr(5) and writeback else 'Z';
-  pc_reg_in_n(6) <= '0' when intr_addr(6) and writeback else 'Z';
-  pc_reg_in_n(7) <= '0' when intr_addr(7) and writeback else 'Z';
-  pc_reg_in_n <= (others => '1') when not writeback_ext else (others => 'H');
+  process(all)
+  begin
+    if writeback then
+      for i in 0 to 15 loop
+        if wz_reg(i) and decoder.oe_wzreg_to_pcreg then
+          pc_reg_in_n(i) <= '0';
+        end if;
+        if idu_out(i) and decoder.oe_idu_to_pcreg then
+          pc_reg_in_n(i) <= '0';
+        end if;
+      end loop;
+      for i in 3 to 5 loop
+        if ir_reg(i) and decoder.op_rst_sx10 then
+          pc_reg_in_n(i) <= '0';
+        end if;
+      end loop;
+      for i in 3 to 7 loop
+        if intr_addr(i) then
+          pc_reg_in_n(i) <= '0';
+        end if;
+      end loop;
+    end if;
+    if not writeback_ext then
+      pc_reg_in_n <= (others => '1');
+    end if;
+  end process;
 
   ir_reg_inst: entity work.ssdff_vector
   generic map (WIDTH => 8)
