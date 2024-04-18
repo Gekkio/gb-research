@@ -149,7 +149,11 @@ begin
   idu_inst: entity work.idu
   port map (
     phi => phi,
-    decoder => decoder,
+    op => (
+      jr_adjust => decoder.op_jr_any_sx01,
+      inc => decoder.idu_inc,
+      dec => decoder.idu_dec
+    ),
     carry => carry,
     z_sign => z_reg(7),
     data_in => idu_in,

@@ -12,4 +12,9 @@ package sm83 is
     add_subtract: std_ulogic;
     zero: std_ulogic;
   end record;
+  type idu_op is record
+    jr_adjust: std_ulogic;
+    inc: std_ulogic;
+    dec: std_ulogic;
+  end record;
 end package;

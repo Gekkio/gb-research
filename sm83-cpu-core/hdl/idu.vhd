@@ -5,13 +5,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.sm83_decoder.all;
+use work.sm83.all;
 
 -- Increment/Decrement Unit (IDU)
 entity idu is
   port (
     phi: in std_ulogic;
-    decoder: in decoder_type;
+    op: in idu_op;
     carry: in std_ulogic;
     z_sign: in std_ulogic;
     data_in: in std_ulogic_vector(15 downto 0);
@@ -23,11 +23,11 @@ architecture asic of idu is
   signal jr_pos_carry, jr_neg_carry, jr_carry: std_ulogic;
   signal inc, dec: std_ulogic;
 begin
-  jr_pos_carry <= decoder.op_jr_any_sx01 and carry and not z_sign;
-  jr_neg_carry <= decoder.op_jr_any_sx01 and not carry and z_sign;
+  jr_pos_carry <= op.jr_adjust and carry and not z_sign;
+  jr_neg_carry <= op.jr_adjust and not carry and z_sign;
   jr_carry <= jr_pos_carry or jr_neg_carry;
-  inc <= jr_pos_carry or decoder.idu_inc;
-  dec <= jr_neg_carry or decoder.idu_dec;
+  inc <= jr_pos_carry or op.inc;
+  dec <= jr_neg_carry or op.dec;
 
   process(all)
     variable propagate: std_ulogic_vector(15 downto 0);
