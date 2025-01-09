@@ -7,3 +7,14 @@
 *.swp
 
 *.kicad_prl
+*.kicad_pcb.lck
+*.kicad_sch.lck
+/*/hdl/**/.venv/
+/*/hdl/**/*.ghd
+/*/hdl/**/*.gtkw
+/*/hdl/**/*.vcd
+/*/hdl/**/vhdl_ls.toml
+/*/hdl/**/vunit_out/
+/*/schematic/fp-info-cache
+/*/schematic/*-backups/
+__pycache__/
