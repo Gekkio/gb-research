@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+    
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test_mbc1b:
+    name: Run MBC1B HDL tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "mbc1b/hdl/pyproject.toml"
+      - name: Install GHDL
+        uses: ghdl/setup-ghdl@v1
+        with:
+          version: 5.1.1
+          backend: llvm
+
+      - name: Install the project
+        working-directory: mbc1b/hdl
+        run: uv sync --locked --all-extras --dev
+
+      - name: Run tests
+        working-directory: mbc1b/hdl
+        run: uv run task.py test
