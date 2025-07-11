@@ -6,6 +6,7 @@ import os
 import psutil
 import shutil
 import signal
+import sys
 from pathlib import Path
 from vunit import VUnit
 
@@ -26,13 +27,13 @@ signal.signal(signal.SIGTERM, signal_handler)
 root_dir = Path(__file__).parent.resolve()
 
 
-def clean():
+def clean(argv):
     vunit_out = root_dir / "vunit_out"
     if vunit_out.exists():
         shutil.rmtree(vunit_out)
 
 
-def compile():
+def compile(argv):
     from sm83_hdl.vunit import configure, create_vhdl_ls_config, testbench_files
 
     ui = VUnit.from_argv(["--compile"], compile_builtins=False)
@@ -46,10 +47,10 @@ def compile():
     ui.main()
 
 
-def test():
+def test(argv):
     from sm83_hdl.vunit import configure
 
-    ui = VUnit.from_argv(compile_builtins=False)
+    ui = VUnit.from_argv(argv, compile_builtins=False)
     ui.add_vhdl_builtins()
     lib = configure(ui)
     lib.add_source_files("simulation/decoder_tb.vhd")
@@ -57,10 +58,10 @@ def test():
     ui.main()
 
 
-def decoder_dump():
+def decoder_dump(argv):
     from sm83_hdl.vunit import configure
 
-    ui = VUnit.from_argv(compile_builtins=False)
+    ui = VUnit.from_argv(argv, compile_builtins=False)
     ui.add_vhdl_builtins()
     lib = configure(ui)
     lib.add_source_file("simulation/decoder_tb.vhd")
@@ -91,12 +92,44 @@ def decoder_dump():
     ui.main(post_run)
 
 
-def rom():
+def rom(argv):
     from sm83_hdl.vunit import configure
 
-    ui = VUnit.from_argv(compile_builtins=False)
+    if len(argv) < 1:
+        print("Usage: uv run task.py rom <rom_path>")
+        sys.exit(1)
+
+    rom_path = argv[0]
+
+    ui = VUnit.from_argv(argv[1:], compile_builtins=False)
     ui.add_vhdl_builtins()
     lib = configure(ui)
     lib.add_source_file("simulation/test_rom_tb.vhd")
+    lib.set_generic("rom_path", rom_path)
 
     ui.main()
+
+
+def main():
+    available_tasks = {
+        "clean": clean,
+        "compile": compile,
+        "test": test,
+        "decoder_dump": decoder_dump,
+        "rom": rom
+    }
+    
+    task_name = sys.argv[1] if len(sys.argv) > 1 else None
+    if task_name not in available_tasks:
+        print("Usage: uv run task.py <task_name>")
+        if task_name:
+            print(f"Unknown task: {task_name}")
+        print(f"Available tasks: {', '.join(available_tasks.keys())}")
+        sys.exit(1)
+    
+    available_tasks[task_name](sys.argv[2:])
+
+
+if __name__ == "__main__":
+    main()
+

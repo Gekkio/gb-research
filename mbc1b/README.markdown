@@ -48,10 +48,9 @@ by NEC.
 
 ## Running the HDL test suite
 
-1. Install [Poetry](https://python-poetry.org/)
+1. Install [uv](https://docs.astral.sh/uv/)
 2. Install [GHDL](https://github.com/ghdl/ghdl)
-3. Run `poetry install` in the `hdl` directory
-4. Run `poetry run ./run.py` in the `hdl` directory
+3. Run `uv run task.py test` in the `hdl` directory
 
 ## Further reading
 

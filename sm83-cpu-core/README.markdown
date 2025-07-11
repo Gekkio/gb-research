@@ -85,20 +85,17 @@ The HDL model passes the following tests:
 
 ## Running the HDL test suite
 
-1. Install [Poetry](https://python-poetry.org/)
+1. Install [uv](https://docs.astral.sh/uv/)
 2. Install [GHDL](https://github.com/ghdl/ghdl)
-3. Run `poetry install` in the `hdl` directory
-4. Run `poetry run test` in the `hdl` directory
+3. Run `uv run task.py test` in the `hdl` directory
 
 ## Running a test ROM
 
-1. Install [Poetry](https://python-poetry.org/)
+1. Install [uv](https://docs.astral.sh/uv/)
 2. Install [GHDL](https://github.com/ghdl/ghdl)
-3. Run `poetry install` in the `hdl` directory
-4. Place a test ROM file to the `hdl` directory and name the file `test.gb`
-5. Run `poetry run rom` in the `hdl` directory
+5. Run `uv run task.py rom path_to_your_rom_file.gb` in the `hdl` directory
 
-The `poetry run rom` command runs [VUnit](https://github.com/VUnit/vunit) and accepts various extra arguments, for example:
+The `uv run task.py rom` command runs [VUnit](https://github.com/VUnit/vunit) and accepts various extra arguments, for example:
 
 - `--help`: display help
 - `-v`: enable verbose mode which displays some logging information
