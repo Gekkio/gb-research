@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "b67db6fb-e010-4837-9b46-419c0d446aba")
 	(paper "A4")
 	(title_block
@@ -94,24 +94,6 @@
 						)
 					)
 				)
-				(pin passive clock
-					(at -7.62 -2.54 0)
-					(length 2.54)
-					(name "~{CLK}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin input clock
 					(at -7.62 0 0)
 					(length 2.54)
@@ -130,17 +112,17 @@
 						)
 					)
 				)
-				(pin output line
-					(at 7.62 2.54 180)
+				(pin passive clock
+					(at -7.62 -2.54 0)
 					(length 2.54)
-					(name "Q"
+					(name "~{CLK}"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -167,6 +149,24 @@
 					)
 				)
 				(pin output line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "Q"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
 					(at 7.62 -2.54 180)
 					(length 2.54)
 					(name "~{Q}"
@@ -185,10 +185,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:INV"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -285,10 +288,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:NAND4"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -337,9 +343,9 @@
 			)
 			(symbol "NAND4_1_1"
 				(arc
-					(start -0.635 -4.445)
+					(start -0.635 4.445)
 					(mid 3.7907 0)
-					(end -0.635 4.445)
+					(end -0.635 -4.445)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -451,7 +457,20 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text "0xA pattern check"
+		(exclude_from_sim no)
+		(at 191.77 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(bold yes)
+			)
+			(justify right bottom)
+		)
+		(uuid "f583a068-6a10-477c-bd8d-d7da296054d7")
 	)
 	(junction
 		(at 90.17 68.58)
@@ -1125,21 +1144,8 @@
 		)
 		(uuid "fa579a4b-0a1e-45bd-8ebd-0fe5f24110b3")
 	)
-	(text "0xA pattern check"
-		(exclude_from_sim no)
-		(at 191.77 63.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(bold yes)
-			)
-			(justify right bottom)
-		)
-		(uuid "f583a068-6a10-477c-bd8d-d7da296054d7")
-	)
 	(label "RAMG_CLK"
 		(at 73.66 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1150,7 +1156,6 @@
 	)
 	(label "RAMG3"
 		(at 114.3 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1161,7 +1166,6 @@
 	)
 	(label "~{RAMG_CLK}"
 		(at 73.66 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1172,7 +1176,6 @@
 	)
 	(label "RAMG1"
 		(at 147.32 74.93 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1183,7 +1186,6 @@
 	)
 	(label "~{RAMG0}"
 		(at 114.3 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1194,7 +1196,6 @@
 	)
 	(label "~{RAMG0}"
 		(at 147.32 80.01 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1205,7 +1206,6 @@
 	)
 	(label "~{RAMG2}"
 		(at 114.3 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1216,7 +1216,6 @@
 	)
 	(label "~{RAMG2}"
 		(at 147.32 72.39 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1227,7 +1226,6 @@
 	)
 	(label "RAMG3"
 		(at 147.32 77.47 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1238,7 +1236,6 @@
 	)
 	(label "~{D0}"
 		(at 99.06 41.91 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1249,7 +1246,6 @@
 	)
 	(label "~{D1}"
 		(at 99.06 63.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1260,7 +1256,6 @@
 	)
 	(label "RAMG1"
 		(at 114.3 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1271,7 +1266,6 @@
 	)
 	(label "~{D3}"
 		(at 99.06 106.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1282,7 +1276,6 @@
 	)
 	(label "~{D2}"
 		(at 99.06 85.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1294,7 +1287,6 @@
 	(hierarchical_label "~{D[0..3]}"
 		(shape input)
 		(at 83.82 30.48 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1306,7 +1298,6 @@
 	(hierarchical_label "~{RESET}"
 		(shape input)
 		(at 83.82 34.29 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1318,7 +1309,6 @@
 	(hierarchical_label "RAMG_OK"
 		(shape output)
 		(at 179.07 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1330,7 +1320,6 @@
 	(hierarchical_label "WR"
 		(shape input)
 		(at 40.64 44.45 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

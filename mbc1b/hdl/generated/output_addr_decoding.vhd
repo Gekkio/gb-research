@@ -6,149 +6,144 @@ use work.modules.all;
 
 entity output_addr_decoding is
   port (
-    BANK1_0: in std_ulogic; -- /Address Decoding (outputs)/BANK1_0
-    BANK1_1: in std_ulogic; -- /Address Decoding (outputs)/BANK1_1
-    BANK1_2: in std_ulogic; -- /Address Decoding (outputs)/BANK1_2
-    BANK1_3: in std_ulogic; -- /Address Decoding (outputs)/BANK1_3
-    BANK1_4: in std_ulogic; -- /Address Decoding (outputs)/BANK1_4
-    BANK1_ZERO: in std_ulogic; -- /Address Decoding (outputs)/BANK1_ZERO
-    BANK2_0: in std_ulogic; -- /Address Decoding (outputs)/BANK2_0
-    BANK2_1: in std_ulogic; -- /Address Decoding (outputs)/BANK2_1
-    CS: in std_ulogic; -- /Address Decoding (outputs)/CS
-    MODE: in std_ulogic; -- /Address Decoding (outputs)/MODE
-    RAMG_OK: in std_ulogic; -- /Address Decoding (outputs)/RAMG_OK
-    RD_OR_RESET: in std_ulogic; -- /Address Decoding (outputs)/RD_OR_RESET
-    nA14_H: in std_ulogic; -- /Address Decoding (outputs)/~{A14_H}
-    nA15_H: in std_ulogic; -- /Address Decoding (outputs)/~{A15_H}
-    nRESET_RAMG: in std_ulogic; -- /~{RESET_RAMG}
-    AA13_OUT: out std_ulogic; -- /Address Decoding (outputs)/AA13_OUT
-    AA14_OUT: out std_ulogic; -- /Address Decoding (outputs)/AA14_OUT
-    RA14_OUT: out std_ulogic; -- /Address Decoding (outputs)/RA14_OUT
-    RA15_OUT: out std_ulogic; -- /Address Decoding (outputs)/RA15_OUT
-    RA16_OUT: out std_ulogic; -- /Address Decoding (outputs)/RA16_OUT
-    RA17_OUT: out std_ulogic; -- /Address Decoding (outputs)/RA17_OUT
-    RA18_OUT: out std_ulogic; -- /Address Decoding (outputs)/RA18_OUT
-    RAM_CS_OUT: out std_ulogic; -- /Address Decoding (outputs)/RAM_CS_OUT
-    nRAM_CS_OUT: out std_ulogic; -- /Address Decoding (outputs)/~{RAM_CS_OUT}
-    nROM_CS_OUT: out std_ulogic -- /Address Decoding (outputs)/~{ROM_CS_OUT}
+    BANK1: in std_ulogic_vector(4 downto 0);
+    BANK1_ZERO: in std_ulogic;
+    BANK2: in std_ulogic_vector(1 downto 0);
+    CS: in std_ulogic;
+    MODE: in std_ulogic;
+    RAMG_OK: in std_ulogic;
+    RD_OR_RESET: in std_ulogic;
+    nA14_H: in std_ulogic;
+    nA15_H: in std_ulogic;
+    nRESET_RAMG: in std_ulogic;
+    AA13_OUT: out std_ulogic;
+    AA14_OUT: out std_ulogic;
+    RA14_OUT: out std_ulogic;
+    RA15_OUT: out std_ulogic;
+    RA16_OUT: out std_ulogic;
+    RA17_OUT: out std_ulogic;
+    RA18_OUT: out std_ulogic;
+    RAM_CS_OUT: out std_ulogic;
+    nRAM_CS_OUT: out std_ulogic;
+    nROM_CS_OUT: out std_ulogic
   );
 end entity;
 
 architecture kingfish of output_addr_decoding is
-  signal A14_H: std_ulogic; -- /Address Decoding (outputs)/A14_H
-  signal EP1_nY: std_ulogic; -- Net-(EN1-A)
-  signal FE1_nY: std_ulogic; -- Net-(FE1-~{Y})
-  signal FG1_nY: std_ulogic; -- Net-(FG1-~{Y})
-  signal GD1_Y: std_ulogic; -- Net-(GD1-Y)
-  signal GJ1_Y: std_ulogic; -- Net-(GJ1-Y)
-  signal GL1_Y: std_ulogic; -- Net-(GL1-Y)
-  signal GN1_Y: std_ulogic; -- Net-(GN1-Y)
-  signal GR1_Y: std_ulogic; -- Net-(GR1-Y)
-  signal GU1_Y: std_ulogic; -- Net-(GU1-Y)
-  signal ROM_CS: std_ulogic; -- /Address Decoding (outputs)/ROM_CS
+  signal A14_H: std_ulogic;
+  signal EP1_nY: std_ulogic;
+  signal FE1_nY: std_ulogic;
+  signal FG1_nY: std_ulogic;
+  signal GD1_Y: std_ulogic;
+  signal GJ1_Y: std_ulogic;
+  signal GL1_Y: std_ulogic;
+  signal GN1_Y: std_ulogic;
+  signal GR1_Y: std_ulogic;
+  signal GU1_Y: std_ulogic;
+  signal ROM_CS: std_ulogic;
 begin
-  EM1_inst: INV -- EM1
+  inst_EM1: INV
   port map (
     A => nA14_H,
     Y => A14_H
   );
 
-  EN1_inst: INV -- EN1
+  inst_EN1: INV
   port map (
     A => EP1_nY,
     Y => RA14_OUT
   );
 
-  EP1_inst: AOI22 -- EP1
+  inst_EP1: AOI22
   port map (
     A => A14_H,
     B => BANK1_ZERO,
     C => A14_H,
-    D => BANK1_0,
+    D => BANK1(0),
     nY => EP1_nY
   );
 
-  FE1_inst: OAI21 -- FE1
+  inst_FE1: OAI21
   port map (
-    A => BANK2_1,
+    A => BANK2(1),
     B => MODE,
     C => A14_H,
     nY => FE1_nY
   );
 
-  FF1_inst: INV -- FF1
+  inst_FF1: INV
   port map (
     A => FE1_nY,
     Y => AA14_OUT
   );
 
-  FG1_inst: OAI21 -- FG1
+  inst_FG1: OAI21
   port map (
-    A => BANK2_0,
+    A => BANK2(0),
     B => MODE,
     C => A14_H,
     nY => FG1_nY
   );
 
-  FH1_inst: INV -- FH1
+  inst_FH1: INV
   port map (
     A => FG1_nY,
     Y => AA13_OUT
   );
 
-  GD1_inst: NAND2 -- GD1
+  inst_GD1: NAND2
   port map (
-    A => BANK1_1,
+    A => BANK1(1),
     B => A14_H,
     Y => GD1_Y
   );
 
-  GH1_inst: INV -- GH1
+  inst_GH1: INV
   port map (
     A => GD1_Y,
     Y => RA15_OUT
   );
 
-  GJ1_inst: NAND2 -- GJ1
+  inst_GJ1: NAND2
   port map (
-    A => BANK1_2,
+    A => BANK1(2),
     B => A14_H,
     Y => GJ1_Y
   );
 
-  GK1_inst: INV -- GK1
+  inst_GK1: INV
   port map (
     A => GJ1_Y,
     Y => RA16_OUT
   );
 
-  GL1_inst: NAND2 -- GL1
+  inst_GL1: NAND2
   port map (
-    A => BANK1_3,
+    A => BANK1(3),
     B => A14_H,
     Y => GL1_Y
   );
 
-  GM1_inst: INV -- GM1
+  inst_GM1: INV
   port map (
     A => GL1_Y,
     Y => RA17_OUT
   );
 
-  GN1_inst: NAND2 -- GN1
+  inst_GN1: NAND2
   port map (
-    A => BANK1_4,
+    A => BANK1(4),
     B => A14_H,
     Y => GN1_Y
   );
 
-  GP1_inst: INV -- GP1
+  inst_GP1: INV
   port map (
     A => GN1_Y,
     Y => RA18_OUT
   );
 
-  GR1_inst: NAND4 -- GR1
+  inst_GR1: NAND4
   port map (
     A => nRESET_RAMG,
     B => nA14_H,
@@ -157,32 +152,32 @@ begin
     Y => GR1_Y
   );
 
-  GS1_inst: INV -- GS1
+  inst_GS1: INV
   port map (
     A => RAM_CS_OUT,
     Y => nRAM_CS_OUT
   );
 
-  GT1_inst: INV -- GT1
+  inst_GT1: INV
   port map (
     A => GR1_Y,
     Y => RAM_CS_OUT
   );
 
-  GU1_inst: NAND2 -- GU1
+  inst_GU1: NAND2
   port map (
     A => nA15_H,
     B => RD_OR_RESET,
     Y => GU1_Y
   );
 
-  GV1_inst: INV -- GV1
+  inst_GV1: INV
   port map (
     A => GU1_Y,
     Y => ROM_CS
   );
 
-  GX1_inst: INV -- GX1
+  inst_GX1: INV
   port map (
     A => ROM_CS,
     Y => nROM_CS_OUT

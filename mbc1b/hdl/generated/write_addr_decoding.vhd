@@ -6,34 +6,34 @@ use work.modules.all;
 
 entity write_addr_decoding is
   port (
-    A13_L: in std_ulogic; -- /Address Decoding (register writes)/A13_L
-    A15_L: in std_ulogic; -- /Address Decoding (register writes)/A15_L
-    WR: in std_ulogic; -- /Address Decoding (register writes)/WR
-    nA14_H: in std_ulogic; -- /Address Decoding (outputs)/~{A14_H}
-    BANK1_WR: out std_ulogic; -- /Address Decoding (register writes)/BANK1_WR
-    BANK2_WR: out std_ulogic; -- /Address Decoding (register writes)/BANK2_WR
-    MODE_WR: out std_ulogic; -- /Address Decoding (register writes)/MODE_WR
-    RAMG_WR: out std_ulogic -- /Address Decoding (register writes)/RAMG_WR
+    A13_L: in std_ulogic;
+    A15_L: in std_ulogic;
+    WR: in std_ulogic;
+    nA14_H: in std_ulogic;
+    BANK1_WR: out std_ulogic;
+    BANK2_WR: out std_ulogic;
+    MODE_WR: out std_ulogic;
+    RAMG_WR: out std_ulogic
   );
 end entity;
 
 architecture kingfish of write_addr_decoding is
-  signal A14_H: std_ulogic; -- /Address Decoding (register writes)/A14_H
-  signal nA13_L: std_ulogic; -- /Address Decoding (register writes)/~{A13_L}
+  signal A14_H: std_ulogic;
+  signal nA13_L: std_ulogic;
 begin
-  EC1_inst: INV -- EC1
+  inst_EC1: INV
   port map (
     A => nA14_H,
     Y => A14_H
   );
 
-  ED1_inst: INV -- ED1
+  inst_ED1: INV
   port map (
     A => A13_L,
     Y => nA13_L
   );
 
-  EE1_inst: NAND4 -- EE1
+  inst_EE1: NAND4
   port map (
     A => A15_L,
     B => WR,
@@ -42,7 +42,7 @@ begin
     Y => BANK2_WR
   );
 
-  EF1_inst: NAND4 -- EF1
+  inst_EF1: NAND4
   port map (
     A => A14_H,
     B => WR,
@@ -51,7 +51,7 @@ begin
     Y => MODE_WR
   );
 
-  EK1_inst: NAND4 -- EK1
+  inst_EK1: NAND4
   port map (
     A => A13_L,
     B => WR,
@@ -60,7 +60,7 @@ begin
     Y => RAMG_WR
   );
 
-  EL1_inst: NAND4 -- EL1
+  inst_EL1: NAND4
   port map (
     A => nA14_H,
     B => nA13_L,

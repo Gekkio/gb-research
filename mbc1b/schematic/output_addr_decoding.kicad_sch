@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "4d4b94b8-cf12-4164-a1f2-87951012a688")
 	(paper "A4")
 	(title_block
@@ -167,10 +167,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:INV"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -267,10 +270,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:NAND2"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -319,9 +325,9 @@
 			)
 			(symbol "NAND2_1_1"
 				(arc
-					(start 0 -3.81)
+					(start 0 3.81)
 					(mid 3.7934 0)
-					(end 0 3.81)
+					(end 0 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -397,10 +403,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:NAND4"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -449,9 +458,9 @@
 			)
 			(symbol "NAND4_1_1"
 				(arc
-					(start -0.635 -4.445)
+					(start -0.635 4.445)
 					(mid 3.7907 0)
-					(end -0.635 4.445)
+					(end -0.635 -4.445)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -563,6 +572,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:OAI21"
 			(exclude_from_sim no)
@@ -698,6 +708,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(junction
@@ -1365,7 +1376,6 @@
 	)
 	(label "A14_H"
 		(at 91.44 148.59 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1376,7 +1386,6 @@
 	)
 	(label "A14_H"
 		(at 90.17 33.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1387,7 +1396,6 @@
 	)
 	(label "A14_H"
 		(at 91.44 128.27 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1398,7 +1406,6 @@
 	)
 	(label "A14_H"
 		(at 88.9 91.44 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1409,7 +1416,6 @@
 	)
 	(label "A14_H"
 		(at 88.9 106.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1420,7 +1426,6 @@
 	)
 	(label "~{A14_H}"
 		(at 78.74 171.45 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1431,7 +1436,6 @@
 	)
 	(label "BANK1_2"
 		(at 88.9 71.12 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1442,7 +1446,6 @@
 	)
 	(label "MODE"
 		(at 91.44 146.05 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1453,7 +1456,6 @@
 	)
 	(label "A14_H"
 		(at 90.17 40.64 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1464,7 +1466,6 @@
 	)
 	(label "BANK1_3"
 		(at 88.9 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1475,7 +1476,6 @@
 	)
 	(label "BANK2_1"
 		(at 91.44 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1486,7 +1486,6 @@
 	)
 	(label "A14_H"
 		(at 88.9 60.96 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1497,7 +1496,6 @@
 	)
 	(label "BANK1_ZERO"
 		(at 91.44 35.56 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1508,7 +1506,6 @@
 	)
 	(label "BANK2_0"
 		(at 91.44 120.65 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1519,7 +1516,6 @@
 	)
 	(label "BANK1_4"
 		(at 88.9 101.6 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1530,7 +1526,6 @@
 	)
 	(label "BANK1_0"
 		(at 90.17 43.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1541,7 +1536,6 @@
 	)
 	(label "ROM_CS"
 		(at 217.17 35.56 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1552,7 +1546,6 @@
 	)
 	(label "BANK1_1"
 		(at 88.9 55.88 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1563,7 +1556,6 @@
 	)
 	(label "A14_H"
 		(at 88.9 76.2 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1574,7 +1566,6 @@
 	)
 	(label "MODE"
 		(at 91.44 125.73 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1586,7 +1577,6 @@
 	(hierarchical_label "~{A14_H}"
 		(shape input)
 		(at 50.8 33.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1598,7 +1588,6 @@
 	(hierarchical_label "MODE"
 		(shape input)
 		(at 74.93 156.21 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1610,7 +1599,6 @@
 	(hierarchical_label "BANK2_[0..1]"
 		(shape input)
 		(at 74.93 153.67 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1622,7 +1610,6 @@
 	(hierarchical_label "~{RESET_RAMG}"
 		(shape input)
 		(at 77.47 166.37 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1634,7 +1621,6 @@
 	(hierarchical_label "RA14_OUT"
 		(shape output)
 		(at 119.38 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1646,7 +1632,6 @@
 	(hierarchical_label "RD_OR_RESET"
 		(shape input)
 		(at 179.07 38.1 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1658,7 +1643,6 @@
 	(hierarchical_label "CS"
 		(shape input)
 		(at 78.74 176.53 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1670,7 +1654,6 @@
 	(hierarchical_label "RA18_OUT"
 		(shape output)
 		(at 119.38 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1682,7 +1665,6 @@
 	(hierarchical_label "~{A15_H}"
 		(shape input)
 		(at 179.07 33.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1694,7 +1676,6 @@
 	(hierarchical_label "BANK1_ZERO"
 		(shape input)
 		(at 74.93 20.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1706,7 +1687,6 @@
 	(hierarchical_label "RAMG_OK"
 		(shape input)
 		(at 78.74 173.99 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1718,7 +1698,6 @@
 	(hierarchical_label "RAM_CS_OUT"
 		(shape output)
 		(at 127 172.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1730,7 +1709,6 @@
 	(hierarchical_label "AA13_OUT"
 		(shape output)
 		(at 119.38 123.19 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1742,7 +1720,6 @@
 	(hierarchical_label "~{ROM_CS_OUT}"
 		(shape output)
 		(at 232.41 35.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1754,7 +1731,6 @@
 	(hierarchical_label "BANK1_[0..4]"
 		(shape input)
 		(at 74.93 17.78 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1766,7 +1742,6 @@
 	(hierarchical_label "AA14_OUT"
 		(shape output)
 		(at 119.38 143.51 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1778,7 +1753,6 @@
 	(hierarchical_label "RA17_OUT"
 		(shape output)
 		(at 119.38 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1790,7 +1764,6 @@
 	(hierarchical_label "RA15_OUT"
 		(shape output)
 		(at 119.38 58.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1802,7 +1775,6 @@
 	(hierarchical_label "~{RAM_CS_OUT}"
 		(shape output)
 		(at 127 184.15 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1814,7 +1786,6 @@
 	(hierarchical_label "RA16_OUT"
 		(shape output)
 		(at 119.38 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

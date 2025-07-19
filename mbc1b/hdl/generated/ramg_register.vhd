@@ -6,78 +6,75 @@ use work.modules.all;
 
 entity ramg_register is
   port (
-    WR: in std_ulogic; -- /Address Decoding (register writes)/RAMG_WR
-    nD0: in std_ulogic; -- /~{D0}
-    nD1: in std_ulogic; -- /~{D1}
-    nD2: in std_ulogic; -- /~{D2}
-    nD3: in std_ulogic; -- /~{D3}
-    nRESET: in std_ulogic; -- /~{RESET_RAMG}
-    RAMG_OK: out std_ulogic -- /Address Decoding (outputs)/RAMG_OK
+    WR: in std_ulogic;
+    nD: in std_ulogic_vector(3 downto 0);
+    nRESET: in std_ulogic;
+    RAMG_OK: out std_ulogic
   );
 end entity;
 
 architecture kingfish of ramg_register is
-  signal FL1_Q: std_ulogic; -- unconnected-(FL1-Q-Pad4)
-  signal FM1_nQ: std_ulogic; -- unconnected-(FM1-~{Q}-Pad7)
-  signal FN1_Q: std_ulogic; -- unconnected-(FN1-Q-Pad4)
-  signal FP1_nQ: std_ulogic; -- unconnected-(FP1-~{Q}-Pad7)
-  signal FR1_Y: std_ulogic; -- Net-(FR1-Y)
-  signal RAMG1: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/RAMG1
-  signal RAMG3: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/RAMG3
-  signal RAMG_CLK: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/RAMG_CLK
-  signal nRAMG0: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/~{RAMG0}
-  signal nRAMG2: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/~{RAMG2}
-  signal nRAMG_CLK: std_ulogic; -- /RAMG register (0x0000-0x1FFF)/~{RAMG_CLK}
+  signal FL1_Q: std_ulogic;
+  signal FM1_nQ: std_ulogic;
+  signal FN1_Q: std_ulogic;
+  signal FP1_nQ: std_ulogic;
+  signal FR1_Y: std_ulogic;
+  signal RAMG1: std_ulogic;
+  signal RAMG3: std_ulogic;
+  signal RAMG_CLK: std_ulogic;
+  signal nRAMG0: std_ulogic;
+  signal nRAMG2: std_ulogic;
+  signal nRAMG_CLK: std_ulogic;
 begin
-  FJ1_inst: INV -- FJ1
+  inst_FJ1: INV
   port map (
     A => WR,
     Y => nRAMG_CLK
   );
 
-  FK1_inst: INV -- FK1
+  inst_FK1: INV
   port map (
     A => nRAMG_CLK,
     Y => RAMG_CLK
   );
 
-  FL1_inst: DFFR -- FL1
+  inst_FL1: DFFR
   port map (
     CLK => RAMG_CLK,
     Q => FL1_Q,
-    nD => nD0,
+    nD => nD(0),
     nQ => nRAMG0,
     nRESET => nRESET
   );
 
-  FM1_inst: DFFR -- FM1
+  inst_FM1: DFFR
   port map (
     CLK => RAMG_CLK,
     Q => RAMG1,
-    nD => nD1,
+    nD => nD(1),
     nQ => FM1_nQ,
     nRESET => nRESET
   );
 
-  FN1_inst: DFFR -- FN1
+  inst_FN1: DFFR
   port map (
     CLK => RAMG_CLK,
     Q => FN1_Q,
-    nD => nD2,
+    nD => nD(2),
     nQ => nRAMG2,
     nRESET => nRESET
   );
 
-  FP1_inst: DFFR -- FP1
+  inst_FP1: DFFR
   port map (
     CLK => RAMG_CLK,
     Q => RAMG3,
-    nD => nD3,
+    nD => nD(3),
     nQ => FP1_nQ,
     nRESET => nRESET
   );
 
-  FR1_inst: NAND4 -- FR1
+  inst_FR1: NAND4
   port map (
     A => nRAMG2,
     B => RAMG1,
@@ -86,7 +83,7 @@ begin
     Y => FR1_Y
   );
 
-  FS1_inst: INV -- FS1
+  inst_FS1: INV
   port map (
     A => FR1_Y,
     Y => RAMG_OK

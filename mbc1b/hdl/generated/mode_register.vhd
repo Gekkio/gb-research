@@ -6,31 +6,31 @@ use work.modules.all;
 
 entity mode_register is
   port (
-    WR: in std_ulogic; -- /Address Decoding (register writes)/MODE_WR
-    nD0: in std_ulogic; -- /~{D0}
-    nRESET: in std_ulogic; -- /~{RESET_MODE_BANK2}
-    MODE: out std_ulogic -- /Address Decoding (outputs)/MODE
+    WR: in std_ulogic;
+    nD0: in std_ulogic;
+    nRESET: in std_ulogic;
+    MODE: out std_ulogic
   );
 end entity;
 
 architecture kingfish of mode_register is
-  signal EJ1_nQ: std_ulogic; -- unconnected-(EJ1-~{Q}-Pad7)
-  signal MODE_CLK: std_ulogic; -- /MODE register (0x6000-0x7FFF)/MODE_CLK
-  signal nMODE_CLK: std_ulogic; -- /MODE register (0x6000-0x7FFF)/~{MODE_CLK}
+  signal EJ1_nQ: std_ulogic;
+  signal MODE_CLK: std_ulogic;
+  signal nMODE_CLK: std_ulogic;
 begin
-  EG1_inst: INV -- EG1
+  inst_EG1: INV
   port map (
     A => WR,
     Y => nMODE_CLK
   );
 
-  EH1_inst: INV -- EH1
+  inst_EH1: INV
   port map (
     A => nMODE_CLK,
     Y => MODE_CLK
   );
 
-  EJ1_inst: DFFR -- EJ1
+  inst_EJ1: DFFR
   port map (
     CLK => MODE_CLK,
     Q => MODE,

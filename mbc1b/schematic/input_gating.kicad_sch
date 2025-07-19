@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "fbb57f20-6d87-4340-9230-84d0caa8c12b")
 	(paper "A4")
 	(title_block
@@ -14,7 +14,9 @@
 	(lib_symbols
 		(symbol "MBC1B:INV"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -111,10 +113,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:NAND2_PWR"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -163,9 +168,9 @@
 			)
 			(symbol "NAND2_PWR_1_1"
 				(arc
-					(start 0 -3.81)
+					(start 0 3.81)
 					(mid 3.7934 0)
-					(end 0 3.81)
+					(end 0 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -241,10 +246,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:NOR2_PWR"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -293,9 +301,9 @@
 			)
 			(symbol "NOR2_PWR_1_1"
 				(arc
-					(start -3.81 -3.81)
+					(start -3.81 3.81)
 					(mid -2.589 0)
-					(end -3.81 3.81)
+					(end -3.81 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -304,10 +312,10 @@
 						(type none)
 					)
 				)
-				(arc
-					(start -0.6096 -3.81)
-					(mid 2.1855 -2.584)
-					(end 3.81 0)
+				(polyline
+					(pts
+						(xy -3.81 3.81) (xy -0.635 3.81)
+					)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -328,10 +336,22 @@
 						(type background)
 					)
 				)
-				(polyline
-					(pts
-						(xy -3.81 3.81) (xy -0.635 3.81)
+				(arc
+					(start 3.81 0)
+					(mid 2.1855 -2.584)
+					(end -0.6096 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
 					)
+					(fill
+						(type background)
+					)
+				)
+				(arc
+					(start -0.6096 3.81)
+					(mid 2.1929 2.5925)
+					(end 3.81 0)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -346,18 +366,6 @@
 						(xy -2.6162 -0.254) (xy -2.7686 -1.4986) (xy -3.175 -2.7178) (xy -3.81 -3.81) (xy -3.81 -3.81)
 						(xy -0.635 -3.81)
 					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(arc
-					(start 3.81 0)
-					(mid 2.1928 2.5925)
-					(end -0.6096 3.81)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -421,6 +429,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(junction
@@ -891,7 +900,6 @@
 	)
 	(label "~{RESET_NAND}"
 		(at 49.53 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -903,7 +911,6 @@
 	(hierarchical_label "~{D1}"
 		(shape output)
 		(at 78.74 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -915,7 +922,6 @@
 	(hierarchical_label "~{D0}"
 		(shape output)
 		(at 78.74 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -927,7 +933,6 @@
 	(hierarchical_label "WR"
 		(shape output)
 		(at 154.94 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -939,7 +944,6 @@
 	(hierarchical_label "D0_IN"
 		(shape input)
 		(at 60.96 68.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -951,7 +955,6 @@
 	(hierarchical_label "~{WR}_IN"
 		(shape input)
 		(at 137.16 99.06 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -963,7 +966,6 @@
 	(hierarchical_label "A13_L"
 		(shape output)
 		(at 154.94 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -975,7 +977,6 @@
 	(hierarchical_label "A13_IN"
 		(shape input)
 		(at 137.16 68.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -987,7 +988,6 @@
 	(hierarchical_label "A15_L"
 		(shape output)
 		(at 154.94 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -999,7 +999,6 @@
 	(hierarchical_label "D1_IN"
 		(shape input)
 		(at 60.96 83.82 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1011,7 +1010,6 @@
 	(hierarchical_label "RD_OR_RESET"
 		(shape output)
 		(at 78.74 172.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1023,7 +1021,6 @@
 	(hierarchical_label "D4_IN"
 		(shape input)
 		(at 60.96 124.46 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1035,7 +1032,6 @@
 	(hierarchical_label "A15_IN"
 		(shape input)
 		(at 60.96 154.94 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1047,7 +1043,6 @@
 	(hierarchical_label "~{A15_H}"
 		(shape output)
 		(at 78.74 157.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1059,7 +1054,6 @@
 	(hierarchical_label "~{D4}"
 		(shape output)
 		(at 78.74 127 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1071,7 +1065,6 @@
 	(hierarchical_label "~{A14_H}"
 		(shape output)
 		(at 78.74 142.24 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1083,7 +1076,6 @@
 	(hierarchical_label "D2_IN"
 		(shape input)
 		(at 60.96 93.98 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1095,7 +1087,6 @@
 	(hierarchical_label "~{D2}"
 		(shape output)
 		(at 78.74 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1107,7 +1098,6 @@
 	(hierarchical_label "A15_IN"
 		(shape input)
 		(at 137.16 83.82 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1119,7 +1109,6 @@
 	(hierarchical_label "A14_IN"
 		(shape input)
 		(at 60.96 139.7 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1131,7 +1120,6 @@
 	(hierarchical_label "CS"
 		(shape output)
 		(at 154.94 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1143,7 +1131,6 @@
 	(hierarchical_label "RESET"
 		(shape input)
 		(at 31.75 46.99 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1155,7 +1142,6 @@
 	(hierarchical_label "~{D3}"
 		(shape output)
 		(at 78.74 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1167,7 +1153,6 @@
 	(hierarchical_label "D3_IN"
 		(shape input)
 		(at 60.96 109.22 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1179,7 +1164,6 @@
 	(hierarchical_label "~{RD}_IN"
 		(shape input)
 		(at 60.96 170.18 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1191,7 +1175,6 @@
 	(hierarchical_label "~{CS}_IN"
 		(shape input)
 		(at 137.16 114.3 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

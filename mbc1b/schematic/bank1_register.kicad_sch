@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "b67db6fb-e010-4837-9b46-419c0d446aba")
 	(paper "A4")
 	(title_block
@@ -94,24 +94,6 @@
 						)
 					)
 				)
-				(pin passive clock
-					(at -7.62 -2.54 0)
-					(length 2.54)
-					(name "~{CLK}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin input clock
 					(at -7.62 0 0)
 					(length 2.54)
@@ -130,17 +112,17 @@
 						)
 					)
 				)
-				(pin output line
-					(at 7.62 2.54 180)
+				(pin passive clock
+					(at -7.62 -2.54 0)
 					(length 2.54)
-					(name "Q"
+					(name "~{CLK}"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -167,6 +149,24 @@
 					)
 				)
 				(pin output line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "Q"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
 					(at 7.62 -2.54 180)
 					(length 2.54)
 					(name "~{Q}"
@@ -185,10 +185,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:INV"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -285,10 +288,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:NAND5"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -338,7 +344,7 @@
 			(symbol "NAND5_0_1"
 				(polyline
 					(pts
-						(xy -3.81 -5.08) (xy -3.81 -4.445)
+						(xy -3.81 5.08) (xy -3.81 4.445)
 					)
 					(stroke
 						(width 0.254)
@@ -350,7 +356,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 5.08) (xy -3.81 4.445)
+						(xy -3.81 -5.08) (xy -3.81 -4.445)
 					)
 					(stroke
 						(width 0.254)
@@ -363,9 +369,9 @@
 			)
 			(symbol "NAND5_1_1"
 				(arc
-					(start -0.635 -4.445)
+					(start -0.635 4.445)
 					(mid 3.7907 0)
-					(end -0.635 4.445)
+					(end -0.635 -4.445)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -495,7 +501,20 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text "Zero check"
+		(exclude_from_sim no)
+		(at 198.12 72.39 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(bold yes)
+			)
+			(justify right bottom)
+		)
+		(uuid "0f779664-7149-4269-81b8-1a647b45e4e4")
 	)
 	(junction
 		(at 90.17 68.58)
@@ -1445,21 +1464,8 @@
 		)
 		(uuid "fa579a4b-0a1e-45bd-8ebd-0fe5f24110b3")
 	)
-	(text "Zero check"
-		(exclude_from_sim no)
-		(at 198.12 72.39 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(bold yes)
-			)
-			(justify right bottom)
-		)
-		(uuid "0f779664-7149-4269-81b8-1a647b45e4e4")
-	)
 	(label "BANK1_3"
 		(at 114.3 106.68 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1470,7 +1476,6 @@
 	)
 	(label "~{BANK1_0}"
 		(at 151.13 91.44 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1481,7 +1486,6 @@
 	)
 	(label "~{BANK1_3}"
 		(at 151.13 81.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1492,7 +1496,6 @@
 	)
 	(label "~{BANK1_CLK}"
 		(at 73.66 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1503,7 +1506,6 @@
 	)
 	(label "BANK1_1"
 		(at 114.3 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1514,7 +1516,6 @@
 	)
 	(label "~{D4}"
 		(at 99.06 128.27 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1525,7 +1526,6 @@
 	)
 	(label "~{BANK1_0}"
 		(at 114.3 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1536,7 +1536,6 @@
 	)
 	(label "~{D0}"
 		(at 99.06 41.91 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1547,7 +1546,6 @@
 	)
 	(label "~{D1}"
 		(at 99.06 63.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1558,7 +1556,6 @@
 	)
 	(label "BANK1_4"
 		(at 114.3 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1569,7 +1566,6 @@
 	)
 	(label "~{BANK1_2}"
 		(at 151.13 83.82 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1580,7 +1576,6 @@
 	)
 	(label "~{BANK1_1}"
 		(at 114.3 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1591,7 +1586,6 @@
 	)
 	(label "BANK1_CLK"
 		(at 73.66 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1602,7 +1596,6 @@
 	)
 	(label "~{D3}"
 		(at 99.06 106.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1613,7 +1606,6 @@
 	)
 	(label "~{BANK1_1}"
 		(at 151.13 88.9 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1624,7 +1616,6 @@
 	)
 	(label "BANK1_0"
 		(at 114.3 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1635,7 +1626,6 @@
 	)
 	(label "BANK1_2"
 		(at 114.3 85.09 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1646,7 +1636,6 @@
 	)
 	(label "~{BANK1_2}"
 		(at 114.3 90.17 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1657,7 +1646,6 @@
 	)
 	(label "~{BANK1_3}"
 		(at 114.3 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1668,7 +1656,6 @@
 	)
 	(label "~{D2}"
 		(at 99.06 85.09 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1679,7 +1666,6 @@
 	)
 	(label "~{BANK1_4}"
 		(at 151.13 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1690,7 +1676,6 @@
 	)
 	(label "~{BANK1_4}"
 		(at 114.3 133.35 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1702,7 +1687,6 @@
 	(hierarchical_label "~{D[0..4]}"
 		(shape input)
 		(at 83.82 30.48 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1714,7 +1698,6 @@
 	(hierarchical_label "~{RESET}"
 		(shape input)
 		(at 83.82 33.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1726,7 +1709,6 @@
 	(hierarchical_label "BANK1_ZERO"
 		(shape output)
 		(at 182.88 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1738,7 +1720,6 @@
 	(hierarchical_label "BANK1_[0..4]"
 		(shape output)
 		(at 128.27 30.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1750,7 +1731,6 @@
 	(hierarchical_label "WR"
 		(shape input)
 		(at 40.64 44.45 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

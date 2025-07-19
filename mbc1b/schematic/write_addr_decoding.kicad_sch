@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "14ba3fb8-05f0-46ea-9ac3-bb40cf4f9b02")
 	(paper "A4")
 	(title_block
@@ -14,7 +14,9 @@
 	(lib_symbols
 		(symbol "MBC1B:INV"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -111,10 +113,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:NAND4"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -163,9 +168,9 @@
 			)
 			(symbol "NAND4_1_1"
 				(arc
-					(start -0.635 -4.445)
+					(start -0.635 4.445)
 					(mid 3.7907 0)
-					(end -0.635 4.445)
+					(end -0.635 -4.445)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -277,6 +282,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(junction
@@ -773,7 +779,6 @@
 	)
 	(label "A14_H"
 		(at 114.3 78.74 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -784,7 +789,6 @@
 	)
 	(label "~{A14_H}"
 		(at 114.3 111.76 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -795,7 +799,6 @@
 	)
 	(label "~{A14_H}"
 		(at 114.3 124.46 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -806,7 +809,6 @@
 	)
 	(label "WR"
 		(at 114.3 129.54 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -817,7 +819,6 @@
 	)
 	(label "A13_L"
 		(at 114.3 68.58 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -828,7 +829,6 @@
 	)
 	(label "A15_L"
 		(at 114.3 114.3 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -839,7 +839,6 @@
 	)
 	(label "A15_L"
 		(at 114.3 132.08 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -850,7 +849,6 @@
 	)
 	(label "~{A13_L}"
 		(at 114.3 83.82 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -861,7 +859,6 @@
 	)
 	(label "~{A13_L}"
 		(at 114.3 127 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -872,7 +869,6 @@
 	)
 	(label "WR"
 		(at 114.3 63.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -883,7 +879,6 @@
 	)
 	(label "A14_H"
 		(at 114.3 66.04 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -894,7 +889,6 @@
 	)
 	(label "A13_L"
 		(at 114.3 106.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -905,7 +899,6 @@
 	)
 	(label "A15_L"
 		(at 114.3 60.96 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -916,7 +909,6 @@
 	)
 	(label "A15_L"
 		(at 114.3 86.36 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -927,7 +919,6 @@
 	)
 	(label "WR"
 		(at 114.3 109.22 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -938,7 +929,6 @@
 	)
 	(label "WR"
 		(at 114.3 81.28 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -950,7 +940,6 @@
 	(hierarchical_label "BANK2_WR"
 		(shape output)
 		(at 129.54 64.77 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -962,7 +951,6 @@
 	(hierarchical_label "RAMG_WR"
 		(shape output)
 		(at 129.54 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -974,7 +962,6 @@
 	(hierarchical_label "~{A14_H}"
 		(shape input)
 		(at 74.93 72.39 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -986,7 +973,6 @@
 	(hierarchical_label "WR"
 		(shape input)
 		(at 74.93 58.42 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -998,7 +984,6 @@
 	(hierarchical_label "A13_L"
 		(shape input)
 		(at 74.93 101.6 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1010,7 +995,6 @@
 	(hierarchical_label "MODE_WR"
 		(shape output)
 		(at 129.54 82.55 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1022,7 +1006,6 @@
 	(hierarchical_label "A15_L"
 		(shape input)
 		(at 74.93 132.08 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1034,7 +1017,6 @@
 	(hierarchical_label "BANK1_WR"
 		(shape output)
 		(at 129.54 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

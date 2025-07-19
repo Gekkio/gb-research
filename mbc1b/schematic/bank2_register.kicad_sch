@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "b67db6fb-e010-4837-9b46-419c0d446aba")
 	(paper "A4")
 	(title_block
@@ -94,24 +94,6 @@
 						)
 					)
 				)
-				(pin passive clock
-					(at -7.62 -2.54 0)
-					(length 2.54)
-					(name "~{CLK}"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin input clock
 					(at -7.62 0 0)
 					(length 2.54)
@@ -130,17 +112,17 @@
 						)
 					)
 				)
-				(pin output line
-					(at 7.62 2.54 180)
+				(pin passive clock
+					(at -7.62 -2.54 0)
 					(length 2.54)
-					(name "Q"
+					(name "~{CLK}"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -167,6 +149,24 @@
 					)
 				)
 				(pin output line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "Q"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
 					(at 7.62 -2.54 180)
 					(length 2.54)
 					(name "~{Q}"
@@ -185,10 +185,13 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "MBC1B:INV"
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -285,6 +288,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(junction
@@ -637,7 +641,6 @@
 	)
 	(label "~{BANK2_CLK}"
 		(at 73.66 46.99 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -648,7 +651,6 @@
 	)
 	(label "BANK2_1"
 		(at 114.3 63.5 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -659,7 +661,6 @@
 	)
 	(label "~{D0}"
 		(at 99.06 41.91 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -670,7 +671,6 @@
 	)
 	(label "~{D1}"
 		(at 99.06 63.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -681,7 +681,6 @@
 	)
 	(label "BANK2_CLK"
 		(at 73.66 44.45 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -692,7 +691,6 @@
 	)
 	(label "BANK2_0"
 		(at 114.3 41.91 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -704,7 +702,6 @@
 	(hierarchical_label "~{D[0..1]}"
 		(shape input)
 		(at 83.82 30.48 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -716,7 +713,6 @@
 	(hierarchical_label "~{RESET}"
 		(shape input)
 		(at 83.82 33.02 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -728,7 +724,6 @@
 	(hierarchical_label "BANK2_[0..1]"
 		(shape output)
 		(at 128.27 30.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -740,7 +735,6 @@
 	(hierarchical_label "WR"
 		(shape input)
 		(at 40.64 44.45 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
