@@ -175,7 +175,7 @@ begin
   process(all)
   begin
     if writeback then
-      outputs.cc_match <= (
+      outputs.cc_bypass <= (
         (
           (cf and ir_reg(4 downto 3) ?= "10") or
           (not cf and ir_reg(4 downto 3) ?= "11") or
@@ -185,7 +185,7 @@ begin
       );
     end if;
     if not writeback_ext then
-      outputs.cc_match <= '0';
+      outputs.cc_bypass <= '0';
     end if;
   end process;
 

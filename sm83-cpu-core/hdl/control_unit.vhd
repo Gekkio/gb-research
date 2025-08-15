@@ -24,7 +24,7 @@ entity control_unit is
     wake: in std_ulogic;
     reset_ack: in std_ulogic;
     decoder: in decoder_type;
-    cc_match: in std_ulogic;
+    cc_bypass: in std_ulogic;
     intr_wake: in std_ulogic;
     irq_req: in std_ulogic;
     ir_reg: in std_ulogic_vector(7 downto 0);
@@ -218,7 +218,7 @@ begin
   port map (
     clk => mclk_pulse,
     -- WAGR + WUDZ
-    d => decoder.state0_next or cc_match or reset_op_int,
+    d => decoder.state0_next or cc_bypass or reset_op_int,
     q => state(0)
   );
 
@@ -227,7 +227,7 @@ begin
   port map (
     clk => mclk_pulse,
     -- WAGR + WEEN
-    d => decoder.state1_next or cc_match or reset_op_int,
+    d => decoder.state1_next or cc_bypass or reset_op_int,
     q => state(1)
   );
 
@@ -236,7 +236,7 @@ begin
   port map (
     clk => mclk_pulse,
     -- WAGR + WERF
-    d => decoder.state2_next or cc_match or reset_op_int,
+    d => decoder.state2_next or cc_bypass or reset_op_int,
     q => state(2)
   );
 

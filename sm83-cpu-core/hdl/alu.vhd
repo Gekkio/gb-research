@@ -19,7 +19,7 @@ entity alu is
     a_reg_hi_9bdf: in std_ulogic;
     a_reg_lo_gt_9: in std_ulogic;
     a_reg_hi_gt_9: in std_ulogic;
-    cc_match: out std_ulogic;
+    cc_bypass: out std_ulogic;
     z_reg_sign: out std_ulogic;
     carry: out std_ulogic;
     flags: out cpu_flags;
@@ -59,7 +59,7 @@ begin
     outputs => stage1_out
   );
 
-  cc_match <= stage1_out.cc_match;
+  cc_bypass <= stage1_out.cc_bypass;
   z_reg_sign <= stage1_out.z_reg_sign;
   flags <= stage1_out.flags;
 

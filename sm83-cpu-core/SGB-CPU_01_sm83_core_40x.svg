@@ -10141,7 +10141,7 @@
         <path
            d="m 2605.8502,3155.1866 v -113.7019 h -35.9544 v -145.0774 m 35.1327,148.2904 -2.8038,-10.4638 v -113.1211 m 4.361,123.5838 h 55.2822 v -150.816 m -29.6827,150.7992 -1.8337,-229.853"
            id="path12065"
-           inkscape:label="CC_MATCH"
+           inkscape:label="CC_BYPASS"
            sodipodi:nodetypes="cccccccccccc"
            style="display:inline" />
         <path
@@ -19690,7 +19690,7 @@
          d="m 2629.5865,3161.4214 v -102.6235 h 72.7002 v -68.1309 h -16.7171 v -212.9477 h -39.0184 v -432.8299 h 12.6509 v -35.7085 h 18.1329 v -36.16 h 461.0804 v 36.9753 l 587.1342,-2.0636 v -238.6638 l 3681.6523,-3.1291 v -18.2236 h -25.1978 v -691.2474 h 17.4476"
          id="path330625"
          style="display:inline;marker-start:url(#Square);marker-end:url(#Arrow1L)"
-         inkscape:label="CC_MATCH"
+         inkscape:label="CC_BYPASS"
          sodipodi:nodetypes="ccccccccccccccccccccc" />
       <g
          id="g167920"

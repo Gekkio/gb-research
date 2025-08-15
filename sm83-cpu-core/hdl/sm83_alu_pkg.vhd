@@ -21,7 +21,7 @@ package sm83_alu is
     data_generate: std_ulogic_vector(7 downto 0);
     data_propagate: std_ulogic_vector(7 downto 0);
     data_logic: std_ulogic_vector(7 downto 0);
-    cc_match: std_ulogic;
+    cc_bypass: std_ulogic;
     carry_in: std_ulogic;
     z_reg_sign: std_ulogic;
     flags: cpu_flags;

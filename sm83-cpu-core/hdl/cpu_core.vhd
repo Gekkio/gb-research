@@ -55,7 +55,7 @@ architecture asic of cpu_core is
   signal a_reg_lo_gt_9: std_ulogic;
   signal a_reg_hi_gt_9: std_ulogic;
 
-  signal cc_match: std_ulogic;
+  signal cc_bypass: std_ulogic;
   signal z_reg_sign: std_ulogic;
   signal flags: cpu_flags;
   signal carry: std_ulogic;
@@ -108,7 +108,7 @@ begin
     a_reg_hi_9bdf => a_reg_hi_9bdf,
     a_reg_lo_gt_9 => a_reg_lo_gt_9,
     a_reg_hi_gt_9 => a_reg_hi_gt_9,
-    cc_match => cc_match,
+    cc_bypass => cc_bypass,
     z_reg_sign => z_reg_sign,
     carry => carry,
     flags => flags,
@@ -179,7 +179,7 @@ begin
     wake => wake,
     reset_ack => reset_ack,
     decoder => decoder,
-    cc_match => cc_match,
+    cc_bypass => cc_bypass,
     intr_wake => intr_wake,
     irq_req => irq_req,
     ir_reg => ir_reg,
